@@ -1,50 +1,121 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<style>
+		.background-animate {
+	
+		  animation: AnimationName 3s ease infinite;
+		}
+	
+		@keyframes AnimationName {
+		  0%,
+		  100% {
+		  background-size: 400% 400%;
+			background-position: center top;
+		  }
+		  50% {
+		  background-size: 200% 200%;
+			background-position: center center;
+		  }
+		}
+		.o-noise {
+pointer-events: none;
+animation: noise 1s steps(2) infinite;
+position: fixed;
+  inset: 0;
+  z-index: 901;
+  background-image: url('/noise.png');
+  background-position: 0px 0px;
+  background-size: 100px;
+}
+@keyframes noise {
+    0%, 100% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: -5% -10%;
+    }
+    20% {
+        background-position: -15% 5%;
+    }
+    30% {
+        background-position: 7% -25%;
+    }
+    40% {
+        background-position: 20% 25%;
+    }
+    50% {
+        background-position: -25% 10%;
+    }
+    60% {
+        background-position: 15% 5%;
+    }
+    70% {
+        background-position: 0% 15%;
+    }
+    80% {
+        background-position: 25% 35%;
+    }
+    90% {
+        background-position: -10% 10%;
+    }
+}
+.contact-btn {
+	&:hover img {
+		animation: levitating 3s ease infinite;
+
+	}
+	&:hover > div {
+		animation: levitating 3s ease infinite;
+
+	}
+}
+@keyframes levitating {
+	  0%, 100% {
+	transform: translateY(0);
+	  }
+	  50% {
+	transform: translateY(-10px);
+	  }
+	}
+	@keyframes shadow {
+		0%, 100% {
+			
+		}
+	}
+	  </style>
+  </head>
+  <body>
+    <main
+      class="relative flex flex-col h-dvh bg-gradient-to-t w-full from-purple-600 to-blue-800 background-animate"
+    >
+      <section
+        class="relative h-full flex flex-col justify-between ml-10 mt-10 px-8 py-10 big-shadow bg-[url('folio_duotono_bg2x.png')] bg-cover bg-right"
+      >
+        <h1 class="text-2xl max-w-96 text-pretty">
+          <a href="/" class="">
+            <span class="text-4xl block">Diego de Sousa</span></a
+          >es un desarrollador frontend que trabaja con proyectos creativos
+          desde el cariño y la inmersión.
+        </h1>
+		<div class="contact-btn relative flex flex-row">
+			Hablemos
+			<div class="rocket-container flex flex-col items-center">
+				<img src="rocket.svg" alt="" class="w-12 aspect-square" />
+				<div class="w-1/2 h-2 bg-slate-800 rounded-full"></div>
+			</div>
+		</div>
+      </section>
+    </main>
+	<div class="o-noise"></div>
+
+  </body>
 </html>
