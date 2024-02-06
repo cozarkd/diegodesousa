@@ -1,121 +1,150 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseHead from '../components/BaseHead.astro'
+// import Header from '../components/Header.astro'
+// import Footer from '../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
+<script>
+  import { gsap } from 'gsap'
+
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+</script>
+
+<html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	<style>
-		.background-animate {
-	
-		  animation: AnimationName 3s ease infinite;
-		}
-	
-		@keyframes AnimationName {
-		  0%,
-		  100% {
-		  background-size: 400% 400%;
-			background-position: center top;
-		  }
-		  50% {
-		  background-size: 200% 200%;
-			background-position: center center;
-		  }
-		}
-		.o-noise {
-pointer-events: none;
-animation: noise 1s steps(2) infinite;
-position: fixed;
-  inset: 0;
-  z-index: 901;
-  background-image: url('/noise.png');
-  background-position: 0px 0px;
-  background-size: 100px;
-}
-@keyframes noise {
-    0%, 100% {
-        background-position: 0 0;
-    }
-    10% {
-        background-position: -5% -10%;
-    }
-    20% {
-        background-position: -15% 5%;
-    }
-    30% {
-        background-position: 7% -25%;
-    }
-    40% {
-        background-position: 20% 25%;
-    }
-    50% {
-        background-position: -25% 10%;
-    }
-    60% {
-        background-position: 15% 5%;
-    }
-    70% {
-        background-position: 0% 15%;
-    }
-    80% {
-        background-position: 25% 35%;
-    }
-    90% {
-        background-position: -10% 10%;
-    }
-}
-.contact-btn {
-	&:hover img {
-		animation: levitating 3s ease infinite;
+    <style>
+      .gradient-animate-1 {
+        animation: gradient1 5s ease-in-out 0ms infinite;
+      }
 
-	}
-	&:hover > div {
-		animation: levitating 3s ease infinite;
+      @keyframes gradient1 {
+        0%,
+        100% {
+          transform: scale(1) translate(0, 0);
+        }
+        50% {
+          transform: scale(1.2) translate(-0%, 0%);
+        }
+      }
 
-	}
-}
-@keyframes levitating {
-	  0%, 100% {
-	transform: translateY(0);
-	  }
-	  50% {
-	transform: translateY(-10px);
-	  }
-	}
-	@keyframes shadow {
-		0%, 100% {
-			
-		}
-	}
-	  </style>
+      .gradient-animate-2 {
+        animation-delay: 1000ms;
+        animation: gradient2 5s linear 0ms infinite;
+      }
+      @keyframes gradient2 {
+        0% {
+          transform: scale(1) translate(0, 0) rotate(0deg);
+        }
+        100% {
+          transform: scale(1) translate(-0%, 0%) rotate(360deg);
+        }
+      }
+      .o-noise {
+        pointer-events: none;
+        animation: noise 1s steps(2) infinite;
+        position: fixed;
+        inset: 0;
+        z-index: 901;
+        background-image: url("/noise.png");
+        background-position: 0px 0px;
+        background-size: 100px;
+      }
+      @keyframes noise {
+        0%,
+        100% {
+          background-position: 0 0;
+        }
+        10% {
+          background-position: -5% -10%;
+        }
+        20% {
+          background-position: -15% 5%;
+        }
+        30% {
+          background-position: 7% -25%;
+        }
+        40% {
+          background-position: 20% 25%;
+        }
+        50% {
+          background-position: -25% 10%;
+        }
+        60% {
+          background-position: 15% 5%;
+        }
+        70% {
+          background-position: 0% 15%;
+        }
+        80% {
+          background-position: 25% 35%;
+        }
+        90% {
+          background-position: -10% 10%;
+        }
+      }
+      .contact-btn {
+        &:hover img {
+          animation: levitating 3s ease infinite;
+        }
+        &:hover > div {
+          animation: levitating 3s ease infinite;
+        }
+      }
+      @keyframes levitating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes shadow {
+        0%,
+        100% {
+        }
+      }
+    </style>
   </head>
   <body>
-    <main
-      class="relative flex flex-col h-dvh bg-gradient-to-t w-full from-purple-600 to-blue-800 background-animate"
-    >
+    <main class="relative flex flex-col h-dvh w-full">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          class="absolute -bottom-1/2 -left-[600px] h-[1024px] aspect-square bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent gradient-animate-1 origin-bottom-left opacity-30 outline"
+        >
+        </div>
+        <div
+          class="absolute bottom-0 right-0 h-full aspect-square bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-600 via-transparent to-transparent gradient-animate-2 origin-top-right opacity-100"
+        >
+        </div>
+      </div>
+      <!-- <section
+      class="relative h-full flex flex-col justify-between px-12 py-24 bg-[url('folio_duotono_bg2x.png')] bg-cover bg-right"
+    > -->
       <section
-        class="relative h-full flex flex-col justify-between ml-10 mt-10 px-8 py-10 big-shadow bg-[url('folio_duotono_bg2x.png')] bg-cover bg-right"
+        class="relative h-full flex flex-col justify-between px-12 py-24"
       >
-        <h1 class="text-2xl max-w-96 text-pretty">
+
+        <h1 class="text-xl max-w-[32ch] text-balance text-secondary">
           <a href="/" class="">
-            <span class="text-4xl block">Diego de Sousa</span></a
-          >es un desarrollador frontend que trabaja con proyectos creativos
-          desde el cariño y la inmersión.
+            <span class="text-5xl block mb-2 font-bold text-primary">Diego de Sousa</span></a
+          >es un <strong>desarrollador frontend</strong> que trabaja con proyectos
+          creativos desde el cariño y la inmersión.
         </h1>
-		<div class="contact-btn relative flex flex-row">
-			Hablemos
-			<div class="rocket-container flex flex-col items-center">
-				<img src="rocket.svg" alt="" class="w-12 aspect-square" />
-				<div class="w-1/2 h-2 bg-slate-800 rounded-full"></div>
-			</div>
-		</div>
+        <div class="contact-btn relative flex flex-row">
+          Hablemos
+          <div class="rocket-container flex flex-col items-center">
+            <img src="rocket.svg" alt="" class="w-12 aspect-square" />
+            <div class="w-1/2 h-2 bg-slate-800 rounded-full"></div>
+          </div>
+        </div>
       </section>
     </main>
-	<div class="o-noise"></div>
-
+    <!-- <div class="o-noise"></div> -->
   </body>
 </html>
