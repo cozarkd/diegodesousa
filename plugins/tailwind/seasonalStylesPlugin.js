@@ -30,8 +30,9 @@ const seasonalStylesPlugin = plugin(function ({ addBase, theme }) {
 	else if ((month === 12 && day >= 21) || month === 1 || month === 2 || (month === 3 && day < 20)) {
 		seasonalStyles = {
 			':root': {
-				'--color-primary': '#00f', // Azul Invierno
-				'--color-secondary': '#f55' // Rojo Invierno
+				'--color-primary': '#B4D2E7', // Azul glaciar
+				'--color-secondary': '#D3D3D3', // Gris suave
+				'--color-accent': '#9B1D20' // Rojo Baya
 			}
 		}
 	}
@@ -39,8 +40,10 @@ const seasonalStylesPlugin = plugin(function ({ addBase, theme }) {
 	else if ((month === 3 && day >= 20) || month === 4 || month === 5 || (month === 6 && day < 21)) {
 		seasonalStyles = {
 			':root': {
-				'--color-primary': '#0f0', // Verde Primavera
-				'--color-secondary': '#f55' // Rojo Primavera
+				'--color-primary': '#6BCB77', // Verde Fresco
+				'--color-secondary': '#FDE74C', // Amarillo suave
+				'--color-accent': '#FA7268' // Coral Brillante
+
 			}
 		}
 	}
@@ -48,8 +51,9 @@ const seasonalStylesPlugin = plugin(function ({ addBase, theme }) {
 	else if ((month === 6 && day >= 21) || month === 7 || month === 8 || (month === 9 && day < 23)) {
 		seasonalStyles = {
 			':root': {
-				'--color-primary': '#ff0', // Amarillo Verano
-				'--color-secondary': '#f55' // Rojo Verano
+				'--color-primary': '#247BA0', // Azul profundo
+				'--color-secondary': '#1BE7FF', // Turquesa claro
+				'--color-accent': '#FF5714' // Naranja Vibrante
 			}
 		}
 	}
@@ -57,8 +61,9 @@ const seasonalStylesPlugin = plugin(function ({ addBase, theme }) {
 	else if ((month === 9 && day >= 23) || month === 10 || month === 11 || (month === 12 && day < 21)) {
 		seasonalStyles = {
 			':root': {
-				'--color-primary': '#f80', // Naranja Otoño
-				'--color-secondary': '#f55' // Rojo Otoño
+				'--color-primary': '#C05805', // Terracota
+				'--color-secondary': '#DDA15E', // Beige Suave
+				'--color-accent': '#4C6A2A' // Verde Musgo
 			}
 		}
 	}
@@ -69,7 +74,8 @@ const seasonalStylesPlugin = plugin(function ({ addBase, theme }) {
 		extend: {
 			colors: {
 				primary: 'var(--color-primary)',
-				secondary: 'var(--color-secondary)'
+				secondary: 'var(--color-secondary)',
+				accent: 'var(--color-accent)'
 			}
 		}
 	}

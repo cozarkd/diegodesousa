@@ -1,0 +1,36 @@
+<style>
+	#seasonal-bg {
+        animation: bg-levitate 5s ease-in-out 0ms infinite;
+	}
+
+	@keyframes bg-levitate {
+        0%,
+        100% {
+          transform: scale(1) translate(0, 0);
+        }
+        50% {
+          transform: scale(1.2) translate(-0%, 0%);
+		}
+	}
+</style>
+
+<div id="seasonal-bg" class="fixed inset-0 bg-spring-light dark:bg-spring-dark bg-cover bg-center bg-no-repeat">
+
+</div>
+
+<!-- <script>
+	import { gsap } from 'gsap'
+
+	// Asegúrate de que el DOM esté completamente cargado antes de ejecutar las animaciones
+	document.addEventListener('DOMContentLoaded', function () {
+		// Animación de escala y opacidad para el círculo SVG
+		gsap.from('#seasonal-bg', {
+			scale: 1.1,
+			transformOrigin: '50% 50%',
+			duration: 3,
+			yoyo: true,
+			repeat: -1,
+			ease: 'sine.inOut'
+	})
+	})
+</script> -->
