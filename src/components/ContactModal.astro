@@ -1,0 +1,225 @@
+---
+
+---
+
+<style>
+  .contact-btn {
+    .rocket-img {
+      animation: levitating 4s ease-in-out infinite;
+    }
+    .rocket-shadow {
+      animation: shadow 4s ease-in-out infinite;
+
+      filter: blur(4px);
+    }
+    &:hover .rocket-img {
+    }
+    &:hover .rocket-shadow {
+    }
+  }
+  @keyframes levitating {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shadow {
+    0%,
+    100% {
+      transform: scaleX(1.5);
+    }
+    50% {
+      transform: scaleX(1);
+    }
+  }
+</style>
+<div
+    id="show"
+  role="button"
+  class="contact-btn relative flex flex-col-reverse md:flex-row gap-2 md:gap-4 text-white md:text-black cursor-pointer animate-fade-up animate-once"
+>
+  Hablemos
+  <div class="rocket-container flex flex-col items-center">
+    <img src="rocket.svg" alt="" class="rocket-img w-12 aspect-square" />
+    <div class="rocket-shadow w-1/2 h-2 bg-purple bg-opacity-30 rounded-full">
+    </div>
+  </div>
+</div>
+
+<div
+  class="quote-wrapper fixed inset-0 w-full h-dvh opacity-0 invisible flex justify-center items-center p-12"
+>
+  <div
+    class="o-wrapper-bg-clicable absolute w-full h-full inset-0 bg-blue cursor-pointer opacity-0"
+  >
+  </div>
+  <div class="quote_form flex flex-col w-[800px] h-[565px] text-base bg-white rounded-3xl opacity-0 bg-[url('postcard-h2x-80.jpg')] bg-cover px-12 pt-40 pb-10">
+        <form
+          id="wf-form-Nuevo-proyecto"
+          name="wf-form-Nuevo-proyecto"
+          data-name="Nuevo-proyecto"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="h-full flex flex-col gap-4 justify-between"
+        >
+        <input type="hidden" name="access_key" value="45ee6310-e703-43b2-9fd5-530e8134cab1">
+          <div class="flex flex-row gap-2 items-center">
+            <label for="Nombre-2" class="form05_title"
+              >Hola Diego, me llamo</label>
+            <input
+              type="text"
+              id="Nombre-2"
+              name="Nombre-2"
+              data-name="Nombre 2"
+              placeholder="Juan Nadie"
+              maxlength="256"
+              required=""
+              class="inline-block text-base h-10 min-w-[240px] px-2 py-2 border-b border-lightpurple bg-transparent text-purple "
+            />
+          </div>
+          <div class="flex flex-row gap-2 items-center">
+            <label for="EMAIL-3" class="form05_title">Mi email es</label>
+            <input
+              type="email"
+              id="EMAIL-3"
+              name="EMAIL-3"
+              data-name="EMAIL 3"
+              placeholder="juan.nadie@gmail.com"
+              maxlength="256"
+              required=""
+              class="inline-block text-base h-10 min-w-[240px] px-2 py-2 border-b border-lightpurple bg-transparent text-purple"
+            />
+          </div>
+          <div class="flex flex-row gap-2 items-center">
+            <label for="DETALLES-3" class="form05_title"
+              >Estoy buscando ayuda con</label
+            ><textarea
+              placeholder="diseño web, tienda online, posicionamiento, etc."
+              maxlength="5000"
+              id="DETALLES-3"
+              name="DETALLES-3"
+              data-name="DETALLES 3"
+              class="inline-block text-base h-30 min-w-[240px] px-2 py-2 border-b border-lightpurple bg-transparent text-purple"></textarea>
+          </div>
+          <div class="flex flex-row gap-2 items-center">
+            <label for="PRESUPUESTO-2" class="form05_title"
+              >Mi presupuesto es</label
+            >
+            <div class="l-pricing-wrapper">
+              <input
+                type="text"
+                id="PRESUPUESTO-2"
+                name="PRESUPUESTO-2"
+                data-name="PRESUPUESTO 2"
+                placeholder="1500-3000€"
+                maxlength="256"
+                class="inline-block text-base h-10 min-w-[240px] px-2 py-2 border-b border-lightpurple bg-transparent text-purple"
+              /><label for="Budget" class="field-label-copy"
+                >(un abanico )</label
+              >
+              <div class="o-abanico"></div>
+            </div>
+          </div>
+          <div class="flex flex-row gap-2 items-center">
+            <label for="DEADLINE-2" class="form05_title"
+              >Necesito tenerlo listo en</label>
+            <input
+              type="text"
+              id="DEADLINE-2"
+              name="DEADLINE-2"
+              data-name="DEADLINE 2"
+              placeholder="seis semanas"
+              maxlength="256"
+              class="inline-block text-base h-10 min-w-[240px] px-2 py-2 border-b border-lightpurple bg-transparent text-purple"
+            />
+          </div>
+          <input
+            type="submit"
+            value="Enviar"
+            data-wait="Please wait..."
+            class="button form-button"
+          />
+        </form>
+        <script src="https://web3forms.com/client/script.js" async defer></script>
+
+        <div class="form05_success hidden">
+          <div class="form_alert">
+            <div class="form_alert_wrap">
+              <img
+                src="https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f7abc0831c3acc68fd41_check-white.svg"
+                width="20"
+                alt=""
+                class="form_alert_icon"
+              />
+              <div class="form_alert_line"></div>
+              <div class="form_alert_text white-text">
+                Gracias, me pondré en contacto contigo pronto!
+              </div>
+            </div><img
+              src="https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f70438469cb34ea8608b_x_white.svg"
+              width="20"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="form05_error hidden">
+          <div class="form_error">
+            <div class="form_error_wrap">
+              <img
+                src="https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f7ab8cdd0a12142b971f_alert-circle-white.svg"
+                width="20"
+                alt=""
+                class="form_error_icon"
+              />
+              <div class="form_error_line"></div>
+              <div class="form_error_paragraph white-text">
+                Parece que hay algún error.
+              </div>
+            </div><img
+              src="https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f70438469cb34ea8608b_x_white.svg"
+              width="20"
+              alt=""
+            />
+          </div>
+        </div>
+       <a
+    
+        href="#"
+        id="close"
+        class="close-button absolute top-10 right-10 color-blue w-10 h-10"
+        ><img src="favicon.svg" alt="" class="exit" /></a
+      >
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  const show = document.getElementById("show");
+  const close = document.getElementById("close");
+  const modal = document.querySelector(".quote-wrapper");
+  const dimmer = document.querySelector(".o-wrapper-bg-clicable");
+  const modalWindow = document.querySelector(".quote_form");
+
+  gsap.set(modalWindow, { y: -100 });
+
+  const modalTl = gsap
+    .timeline({ paused: true })
+    .to(modal, { autoAlpha: 1, duration: 0.05 })
+    .to(dimmer, { opacity: 1, duration: 0.15 })
+    .to(modalWindow, { opacity: 1, y: 0, duration: 0.3 }, "<")
+    .reverse();
+
+  const toggleModal = (e) => {
+    e.stopPropagation();
+    modalTl.reversed(!modalTl.reversed());
+  };
+
+  show.addEventListener("click", toggleModal);
+  close.addEventListener("click", toggleModal);
+  dimmer.addEventListener("click", toggleModal);
+</script>
