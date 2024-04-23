@@ -2,18 +2,48 @@
 // import HeaderLink from './HeaderLink.astro'
 // import { SITE_TITLE } from '../consts'
 import ModeToggle from '@/components/ModeToggle.astro'
-
 ---
 
-<header class="fixed inset-x-0 z-20 bg-transparent">
-	<nav class="py-8 px-8 flex flex-row justify-end items-center">
-		<!-- <h2><a href="/">{SITE_TITLE}</a></h2> -->
-		<!-- <div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div> -->
-		<ModeToggle />
+<nav
+  class='fixed inset-x-0 top-0 z-20 mx-0 flex h-auto grid-cols-4 justify-between bg-background px-6 py-4 shadow-md md:grid md:h-28 md:items-start md:px-12'
+>
+  <div class=''>
+    <span class='hidden text-xs md:inline-block'>Nombre</span>
+    <p class='text-xl'>Diego de Sousa</p>
+  </div>
+  <div class='hidden md:block'>
+    <span class='text-xs'>Estado</span>
+    <p class='max-w-[25ch] text-balance'>
+      Disponible para proyectos <em>freelance</em>
+    </p>
+  </div>
+  <div class='hidden md:block'>
+    <span class='text-xs'>Índice</span>
+    <ul class='*:inline'>
+      <li>
+        <a
+          href='#projects'
+          class="transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
+          >Proyectos</a
+        >
+      </li>
+      <li>
+        <a
+          href='#about'
+          class="transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
+          >Sobre mí</a
+        >
+      </li>
+      <li>
+        <a
+          href='#contact'
+          class='transition-colors hover:text-accent after:hover:text-foreground'
+          >Contacto</a
+        >
+      </li>
+    </ul>
+  </div>
+  <ModeToggle />
 
-	</nav>
-</header>
+  <!-- <div class='absolute inset-x-0 bottom-0 h-0.5 w-full bg-accent'></div> -->
+</nav>

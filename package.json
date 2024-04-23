@@ -7,13 +7,15 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@astrojs/mdx": "^2.0.3",
     "@astrojs/react": "^3.0.9",
     "@astrojs/rss": "^4.0.1",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/recursive": "^5.0.16",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -22,11 +24,11 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.18",
-    "astro": "^4.1.1",
+    "astro": "^4.5.4",
+    "astro-robots-txt": "^1.0.0",
     "autoprefixer": "^10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
     "gsap": "^3.12.5",
     "lucide-react": "^0.323.0",
     "react": "^18.2.0",
@@ -37,15 +39,22 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.0.4",
-    "@typescript-eslint/parser": "^6.18.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-astro": "^0.31.0",
+    "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "prettier": "^3.1.1",
-    "prettier-plugin-astro": "^0.12.3"
+    "postcss-import": "^16.0.0",
+    "postcss-preset-env": "^9.5.2",
+    "prettier": "^3.2.5",
+    "prettier-config-standard": "^7.0.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-css-order": "^2.0.1",
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "tailwind-scrollbar": "^3.1.0"
   }
 }

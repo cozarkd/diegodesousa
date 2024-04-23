@@ -2,17 +2,26 @@
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
-		"astro", // Enable .astro
-		"typescript", // Enable .ts
-		"typescriptreact" // Enable .tsx
+		"astro",
+		"typescript",
+		"typescriptreact"
 	],
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
+	"prettier.documentSelectors": [
+		"**/*.astro"
+	],
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"editor.codeActionsOnSave": [
+		"source.fixAll.eslint"
+	],
 	"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
-	"cSpell.words": [
-		"astrojs"
+	"cSpell.enableFiletypes": [
+		"javascript"
 	],
+	"colorize.colorized_variables": [
+		"CSS"
+	  ]
 }

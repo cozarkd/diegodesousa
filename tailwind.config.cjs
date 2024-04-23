@@ -1,6 +1,6 @@
 // tailwind.config.cjs
 /** @type {import('tailwindcss').Config} */
-const seasonalStylesPlugin = require('./plugins/tailwind/seasonalStylesPlugin.js')
+const seasonalStylesPlugin = require('./plugins/tailwind/seasonalStylesPlugin.ts')
 
 export default {
 	darkMode: ['class'],
@@ -75,5 +75,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate'), seasonalStylesPlugin]
+	plugins: [require('tailwindcss-animate'), seasonalStylesPlugin, require('tailwind-scrollbar')]
 }
