@@ -2,9 +2,9 @@
 
 ---
 
-<h2 class='text-3xl font-bold'>Contacto</h2>
+<h2 class='mx-6 text-3xl font-bold md:mx-0'>Contacto</h2>
 <div
-  class='bg-red-2000 flex flex-col bg-white px-8 py-12 pb-10 text-base text-foreground shadow-lg dark:text-background'
+  class='flex flex-col bg-white px-6 py-8 pb-10 text-base text-foreground shadow-lg dark:text-background md:px-8'
 >
   <form
     id='wf-form-Nuevo-proyecto'
@@ -20,12 +20,12 @@
       value='45ee6310-e703-43b2-9fd5-530e8134cab1'
     />
     <div class='flex flex-row items-center gap-2'>
-      <label for='Nombre-2' class='form05_title'>Hola Diego, me llamo</label>
+      <label for='Nombre'>Hola Diego, me llamo</label>
       <input
         type='text'
-        id='Nombre-2'
-        name='Nombre-2'
-        data-name='Nombre 2'
+        id='Nombre'
+        name='Nombre'
+        data-name='Nombre'
         placeholder='Juan Nadie'
         maxlength='256'
         required=''
@@ -33,12 +33,12 @@
       />
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='EMAIL-3' class='form05_title'>Mi email es</label>
+      <label for='EMAIL'>Mi email es</label>
       <input
         type='email'
-        id='EMAIL-3'
-        name='EMAIL-3'
-        data-name='EMAIL 3'
+        id='EMAIL'
+        name='EMAIL'
+        data-name='EMAIL'
         placeholder='juan.nadie@gmail.com'
         maxlength='256'
         required=''
@@ -46,27 +46,23 @@
       />
     </div>
     <div class='flex flex-row items-start gap-2'>
-      <label for='DETALLES-3' class='form05_title'
-        >Estoy buscando ayuda con</label
-      ><textarea
+      <label for='DETALLES'>Estoy buscando ayuda con</label><textarea
         placeholder='diseño web, desarrollo de mi diseño, tienda online, etc.'
         maxlength='5000'
-        id='DETALLES-3'
-        name='DETALLES-3'
-        data-name='DETALLES 3'
+        id='DETALLES'
+        name='DETALLES'
+        data-name='DETALLES'
         class='field-sizing h-30 border-lightpurple text-purple inline-block max-w-prose border-b bg-transparent px-2 text-base font-semibold'
       ></textarea>
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='PRESUPUESTO-2' class='form05_title'
-        >Mi presupuesto está entre</label
-      >
+      <label for='PRESUPUESTO'>Mi presupuesto está entre</label>
       <div class='l-pricing-wrapper'>
         <input
           type='text'
-          id='PRESUPUESTO-2'
-          name='PRESUPUESTO-2'
-          data-name='PRESUPUESTO 2'
+          id='PRESUPUESTO'
+          name='PRESUPUESTO'
+          data-name='PRESUPUESTO'
           placeholder='1500-3000€'
           maxlength='256'
           class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
@@ -74,14 +70,12 @@
       </div>
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='DEADLINE-2' class='form05_title'
-        >Necesito tenerlo listo en</label
-      >
+      <label for='DEADLINE'>Necesito tenerlo listo en</label>
       <input
         type='text'
-        id='DEADLINE-2'
-        name='DEADLINE-2'
-        data-name='DEADLINE 2'
+        id='DEADLINE'
+        name='DEADLINE'
+        data-name='DEADLINE'
         placeholder='seis semanas'
         maxlength='256'
         class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
@@ -96,7 +90,7 @@
   </form>
   <script src='https://web3forms.com/client/script.js' async defer></script>
 
-  <div class='form05_success hidden'>
+  <!-- <div class='form05_success hidden'>
     <div class='form_alert'>
       <div class='form_alert_wrap'>
         <img
@@ -115,8 +109,8 @@
         alt=''
       />
     </div>
-  </div>
-  <div class='form05_error hidden'>
+  </div> -->
+  <!-- <div class='form05_error hidden'>
     <div class='form_error'>
       <div class='form_error_wrap'>
         <img
@@ -135,5 +129,5 @@
         alt=''
       />
     </div>
-  </div>
+  </div> -->
 </div>

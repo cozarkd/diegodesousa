@@ -17,7 +17,7 @@ import DiegoPortrait from '@/assets/diego_bw.webp'
 
 <html
   lang='es'
-  class='scrollbar-thumb-foreground scrollbar-track-background scrollbar scroll-py-24 scroll-smooth motion-reduce:scroll-auto'
+  class='scroll-py-24 scroll-smooth scrollbar scrollbar-track-background scrollbar-thumb-foreground motion-reduce:scroll-auto'
 >
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -104,16 +104,14 @@ import DiegoPortrait from '@/assets/diego_bw.webp'
           fill='currentColor'></path>
       </svg>
     </div>
-    <main
-      class='relative flex w-full flex-col bg-background text-slate-950 dark:text-slate-300'
-    >
+    <main class='relative flex w-full flex-col bg-background'>
       <SectionContainer id='projects' class='min-h-dvh'>
         <ProjectsSection />
       </SectionContainer>
-      <SectionContainer id='about'>
+      <SectionContainer id='about' class=''>
         <About />
       </SectionContainer>
-      <SectionContainer id='contact' class='bg-background'>
+      <SectionContainer id='contact' class='bg-background px-0'>
         <ContactForm />
       </SectionContainer>
     </main>
