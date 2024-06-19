@@ -5,25 +5,25 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
 
 <h2 class='mx-6 text-3xl font-bold md:mx-0'>Contacto</h2>
 <div
-  class='relative flex flex-col bg-white px-6 pb-10 pt-36 text-sm text-foreground shadow-lg dark:text-background md:px-8 md:pt-24 md:text-base'
+  class='relative flex min-h-60 flex-col items-center justify-center bg-white px-6 text-sm text-foreground shadow-lg dark:text-background md:px-8 md:text-base'
 >
   <div
-    class='absolute inset-0 h-full w-full bg-[url("images/bgs/paper-texture.webp")] bg-repeat opacity-30'
+    class='absolute inset-0 h-full w-full bg-[url("/images/bgs/paper-texture.webp")] bg-repeat opacity-30'
   >
   </div>
-  <Image
-    src={selloPontevedra}
-    alt='Sello de Pontevedra'
-    class='pointer-events-none absolute right-6 top-6 w-16 md:w-20'
-  />
+
   <form
     id='form'
-    name='wf-form-Nuevo-proyecto'
-    data-name='Nuevo-proyecto'
+    name='contact-form'
     action='https://api.web3forms.com/submit'
     method='POST'
-    class='relative flex flex-col justify-between gap-4'
+    class='relative flex w-full flex-col justify-between gap-4 pb-10 pt-36 md:pt-24'
   >
+    <Image
+      src={selloPontevedra}
+      alt='Sello de Pontevedra'
+      class='pointer-events-none absolute right-6 top-6 w-16 md:w-20'
+    />
     <input
       type='hidden'
       name='access_key'
@@ -34,31 +34,32 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       name='subject'
       value='Formulario desde diegodesousa.com'
     />
+    <input type='hidden' name='from_name' value='diegodesousa.com' />
 
     <div class='flex flex-row items-center gap-2'>
-      <label for='Nombre'>Hola Diego, me llamo</label>
+      <label for='name'>Hola Diego, me llamo</label>
       <input
         type='text'
-        id='Nombre'
-        name='Nombre'
-        data-name='Nombre'
+        name='name'
+        id='name'
         placeholder='Juan Nadie'
         maxlength='256'
         required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
+        autocomplete='name'
       />
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='EMAIL'>Mi email es</label>
+      <label for='email'>Mi email es</label>
       <input
         type='email'
-        id='EMAIL'
-        name='EMAIL'
-        data-name='EMAIL'
+        name='email'
+        id='email'
         placeholder='juan.nadie@gmail.com'
         maxlength='256'
         required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
+        autocomplete='email'
       />
     </div>
     <div class='flex flex-row items-start gap-2'>
@@ -104,8 +105,8 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
     >
       Enviar
     </button>
-    <div id='result' class='hidden'></div>
   </form>
+  <div id='result' class='hidden py-8'></div>
   <script src='https://web3forms.com/client/script.js' async defer></script>
 </div>
 
@@ -113,10 +114,6 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form') as HTMLFormElement | null
     const result = document.getElementById('result') as HTMLElement | null
-
-    // Añadiendo mensajes de consola para verificar los elementos
-    console.log('Form element:', form)
-    console.log('Result element:', result)
 
     if (form && result) {
       form.addEventListener('submit', async function (e: Event) {
@@ -126,7 +123,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
         const formData = new FormData(targetForm)
         const json = JSON.stringify(Object.fromEntries(formData))
 
-        form.style.display = 'none'
+        form.classList.add('hidden')
         result.classList.remove('hidden')
         result.innerHTML = 'Por favor, espera...'
         result.classList.add('text-blue-500', 'font-semibold')
@@ -145,7 +142,11 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
 
           const jsonResponse = await response.json()
           console.log('Respuesta recibida:', jsonResponse)
-          result.innerHTML = jsonResponse.message
+          if (jsonResponse.success) {
+            result.innerHTML = '¡Correo enviado con éxito!'
+          } else {
+            result.innerHTML = jsonResponse.message
+          }
           result.classList.remove('text-blue-500')
           result.classList.add('text-green-500')
         } catch (error) {
@@ -161,12 +162,10 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
               result.classList.add('hidden')
               result.classList.remove('text-green-500', 'text-red-500')
             }
-            form.style.display = 'block'
-          }, 3000)
+            form.classList.remove('hidden')
+          }, 5000)
         }
       })
-    } else {
-      console.error('Form or result element is missing')
     }
   })
 </script>
