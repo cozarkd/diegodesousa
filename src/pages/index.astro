@@ -65,26 +65,10 @@ import DiegoPortrait from '@/assets/diego_bw.webp'
         />
       </div>
     </section>
-    {
-      // Reflection
-      // <div class='relative'>
-      //   <div
-      //     class='absolute right-32 top-0 flex h-auto items-center justify-center border-t-2 border-secondary'
-      //   >
-      //     <div
-      //       class='absolute inset-0 z-10 bg-gradient-to-t from-background via-background to-background/0'
-      //     >
-      //     </div>
-      //     <Picture
-      //       src={DiegoPortrait}
-      //       alt='Diego de Sousa'
-      //       class='max-h-[70dvh] w-auto scale-y-[-1] mix-blend-multiply dark:mix-blend-normal'
-      //     />
-      //   </div>
-      // </div>
-    }
 
-    <div class='-mt-4 w-full overflow-hidden text-background drop-shadow-2xl'>
+    <div
+      class='drop-shadow-4xl w-full overflow-hidden text-background md:-mt-4'
+    >
       <svg
         class='relative block h-8 w-full rotate-180 md:h-32'
         xmlns='http://www.w3.org/2000/svg'
@@ -105,13 +89,17 @@ import DiegoPortrait from '@/assets/diego_bw.webp'
       </svg>
     </div>
     <main class='relative flex w-full flex-col bg-background'>
-      <SectionContainer id='projects' class='min-h-dvh'>
+      <SectionContainer id='projects' data-section='projects' class='min-h-dvh'>
         <ProjectsSection />
       </SectionContainer>
-      <SectionContainer id='about' class=''>
+      <SectionContainer id='about' data-section='about' class=''>
         <About />
       </SectionContainer>
-      <SectionContainer id='contact' class='bg-background px-0'>
+      <SectionContainer
+        id='contact'
+        data-section='contact'
+        class='bg-background px-0 md:container'
+      >
         <ContactForm />
       </SectionContainer>
     </main>

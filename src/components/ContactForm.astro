@@ -1,18 +1,28 @@
 ---
-
+import { Image } from 'astro:assets'
+import selloPontevedra from '../assets/sello-pontevedra.webp'
 ---
 
 <h2 class='mx-6 text-3xl font-bold md:mx-0'>Contacto</h2>
 <div
-  class='flex flex-col bg-white px-6 py-8 pb-10 text-base text-foreground shadow-lg dark:text-background md:px-8'
+  class='relative flex flex-col bg-white px-6 pb-10 pt-36 text-sm text-foreground shadow-lg dark:text-background md:px-8 md:pt-24 md:text-base'
 >
+  <div
+    class='absolute inset-0 h-full w-full bg-[url("images/bgs/paper-texture.webp")] bg-repeat opacity-30'
+  >
+  </div>
+  <Image
+    src={selloPontevedra}
+    alt='Sello de Pontevedra'
+    class='pointer-events-none absolute right-6 top-6 w-16 md:w-20'
+  />
   <form
     id='wf-form-Nuevo-proyecto'
     name='wf-form-Nuevo-proyecto'
     data-name='Nuevo-proyecto'
     action='https://api.web3forms.com/submit'
     method='POST'
-    class='flex flex-col justify-between gap-4'
+    class='relative flex flex-col justify-between gap-4'
   >
     <input
       type='hidden'
@@ -29,7 +39,7 @@
         placeholder='Juan Nadie'
         maxlength='256'
         required=''
-        class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
+        class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
     <div class='flex flex-row items-center gap-2'>
@@ -42,7 +52,7 @@
         placeholder='juan.nadie@gmail.com'
         maxlength='256'
         required=''
-        class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
+        class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
     <div class='flex flex-row items-start gap-2'>
@@ -52,7 +62,7 @@
         id='DETALLES'
         name='DETALLES'
         data-name='DETALLES'
-        class='field-sizing h-30 border-lightpurple text-purple inline-block max-w-prose border-b bg-transparent px-2 text-base font-semibold'
+        class='field-sizing h-30 border-lightpurple text-purple inline-block max-w-prose border-b bg-transparent px-2 text-sm font-semibold md:text-base'
       ></textarea>
     </div>
     <div class='flex flex-row items-center gap-2'>
@@ -65,7 +75,7 @@
           data-name='PRESUPUESTO'
           placeholder='1500-3000€'
           maxlength='256'
-          class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
+          class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
         />
       </div>
     </div>
@@ -78,7 +88,7 @@
         data-name='DEADLINE'
         placeholder='seis semanas'
         maxlength='256'
-        class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-base font-semibold'
+        class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
     <input

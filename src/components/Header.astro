@@ -5,7 +5,7 @@ import ModeToggle from '@/components/ModeToggle.astro'
 ---
 
 <nav
-  class='fixed inset-x-0 top-0 z-20 mx-0 flex h-auto grid-cols-4 justify-between bg-background px-6 py-4 shadow-md md:grid md:h-28 md:items-start md:px-12'
+  class='fixed inset-x-0 top-0 z-20 mx-0 flex h-auto grid-cols-4 justify-between border-b-primary bg-background px-6 py-4 shadow-black/10 transition-shadow duration-700 md:grid md:h-28 md:items-start md:px-12'
 >
   <div class=''>
     <span class='hidden text-xs md:inline-block'>Nombre</span>
@@ -19,25 +19,25 @@ import ModeToggle from '@/components/ModeToggle.astro'
   </div>
   <div class='hidden md:block'>
     <span class='text-xs'>Índice</span>
-    <ul class='*:inline'>
+    <ul id='nav-links' class='*:inline'>
       <li>
         <a
           href='#projects'
-          class="transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
+          class="nav-link transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
           >Proyectos</a
         >
       </li>
       <li>
         <a
           href='#about'
-          class="transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
+          class="nav-link transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
           >Sobre mí</a
         >
       </li>
       <li>
         <a
           href='#contact'
-          class='transition-colors hover:text-accent after:hover:text-foreground'
+          class='nav-link transition-colors hover:text-accent after:hover:text-foreground'
           >Contacto</a
         >
       </li>
@@ -47,3 +47,45 @@ import ModeToggle from '@/components/ModeToggle.astro'
 
   <!-- <div class='absolute inset-x-0 bottom-0 h-0.5 w-full bg-accent'></div> -->
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav')
+    const navLinks = document.querySelectorAll('.nav-link')
+    const sections = document.querySelectorAll('section[data-section]')
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const navLink = document.querySelector(
+            `a[href="#${entry.target.id}"]`
+          )
+          if (entry.isIntersecting) {
+            navLink?.classList.add('text-accent', 'after:text-foreground')
+          } else {
+            navLink?.classList.remove('text-accent', 'after:text-foreground')
+          }
+        })
+      },
+      {
+        threshold: 0.5
+      }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav?.classList.add('shadow-3xl')
+      } else {
+        nav?.classList.remove('shadow-3xl')
+      }
+    })
+  })
+</script>
+
+<style>
+  .nav-link.active {
+    color: var(--accent-color); /* Ajusta este color según tu diseño */
+  }
+</style>
