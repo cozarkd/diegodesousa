@@ -17,7 +17,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
     class='pointer-events-none absolute right-6 top-6 w-16 md:w-20'
   />
   <form
-    id='wf-form-Nuevo-proyecto'
+    id='form'
     name='wf-form-Nuevo-proyecto'
     data-name='Nuevo-proyecto'
     action='https://api.web3forms.com/submit'
@@ -29,6 +29,14 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       name='access_key'
       value='45ee6310-e703-43b2-9fd5-530e8134cab1'
     />
+    <input
+      type='hidden'
+      name='subject'
+      value='Formulario desde diegodesousa.com'
+    />
+    <input type='checkbox' name='botcheck' id='' style='display: none;' />
+    <input type='hidden' name='from_name' value='Formulario diegodesousa.com' />
+
     <div class='flex flex-row items-center gap-2'>
       <label for='Nombre'>Hola Diego, me llamo</label>
       <input
@@ -38,7 +46,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
         data-name='Nombre'
         placeholder='Juan Nadie'
         maxlength='256'
-        required=''
+        required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
@@ -46,17 +54,16 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       <label for='EMAIL'>Mi email es</label>
       <input
         type='email'
-        id='EMAIL'
-        name='EMAIL'
-        data-name='EMAIL'
+        name='email'
         placeholder='juan.nadie@gmail.com'
         maxlength='256'
-        required=''
+        required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
     <div class='flex flex-row items-start gap-2'>
-      <label for='DETALLES'>Estoy buscando ayuda con</label><textarea
+      <label for='DETALLES'>Estoy buscando ayuda con</label>
+      <textarea
         placeholder='diseño web, desarrollo de mi diseño, tienda online, etc.'
         maxlength='5000'
         id='DETALLES'
@@ -91,53 +98,57 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
         class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
-    <input
+    <button
       type='submit'
-      value='Enviar'
-      data-wait='Please wait...'
       class='cursor-pointer self-start underline underline-offset-4 transition-all duration-300 ease-in-out hover:scale-105 hover:text-accent'
-    />
+    >
+      Enviar
+    </button>
+    <div id='result'></div>
   </form>
   <script src='https://web3forms.com/client/script.js' async defer></script>
-
-  <!-- <div class='form05_success hidden'>
-    <div class='form_alert'>
-      <div class='form_alert_wrap'>
-        <img
-          src='https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f7abc0831c3acc68fd41_check-white.svg'
-          width='20'
-          alt=''
-          class='form_alert_icon'
-        />
-        <div class='form_alert_line'></div>
-        <div class='form_alert_text white-text'>
-          Gracias, me pondré en contacto contigo pronto!
-        </div>
-      </div><img
-        src='https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f70438469cb34ea8608b_x_white.svg'
-        width='20'
-        alt=''
-      />
-    </div>
-  </div> -->
-  <!-- <div class='form05_error hidden'>
-    <div class='form_error'>
-      <div class='form_error_wrap'>
-        <img
-          src='https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f7ab8cdd0a12142b971f_alert-circle-white.svg'
-          width='20'
-          alt=''
-          class='form_error_icon'
-        />
-        <div class='form_error_line'></div>
-        <div class='form_error_paragraph white-text'>
-          Parece que hay algún error.
-        </div>
-      </div><img
-        src='https://uploads-ssl.webflow.com/5cbc1cadfad96c3229989372/5ce9f70438469cb34ea8608b_x_white.svg'
-        width='20'
-        alt=''
-      />
-    </div>
-  </div> -->
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form') as HTMLFormElement | null
+    const result = document.getElementById('result') as HTMLElement | null
+
+    if (form && result) {
+      form.addEventListener('submit', async function (e: Event) {
+        e.preventDefault()
+
+        const targetForm = e.target as HTMLFormElement
+        const formData = new FormData(targetForm)
+        const json = JSON.stringify(Object.fromEntries(formData))
+
+        result.innerHTML = 'Por favor, espera...'
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: json
+          })
+
+          const jsonResponse = await response.json()
+          result.innerHTML = jsonResponse.message
+        } catch (error) {
+          console.error(error)
+          result.innerHTML =
+            'Algo salió mal, por favor, inténtalo de nuevo o contáctame por email en hola@diegodesousa.com'
+        } finally {
+          targetForm.reset()
+          setTimeout(() => {
+            if (result) {
+              result.style.display = 'none'
+            }
+          }, 3000)
+        }
+      })
+    }
+  })
+</script>
