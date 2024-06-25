@@ -1,0 +1,29 @@
+name: Update Seasonal Styles
+
+on:
+  schedule:
+    # Fechas de eventos y estaciones específicas
+    - cron: '0 0 1 12 *' # 1 de Diciembre para Navidad
+    - cron: '0 0 7 1 *' # 7 de Enero para restablecer Invierno
+    - cron: '0 0 31 10 *' # 31 de Octubre para Halloween
+    - cron: '0 0 2 11 *' # 2 de Noviembre para restablecer Otoño
+    - cron: '0 0 21 12 *' # 21 de Diciembre para Invierno
+    - cron: '0 0 20 3 *' # 20 de Marzo para Primavera
+    - cron: '0 0 21 6 *' # 21 de Junio para Verano
+    - cron: '0 0 23 9 *' # 23 de Septiembre para Otoño
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run update script
+        run: |
+          chmod +x update_date.sh
+          ./update_date.sh
+        env:
+          # GitHub token para permisos de push
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
