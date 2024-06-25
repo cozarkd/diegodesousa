@@ -17,38 +17,82 @@ const seasonalStylesPlugin = plugin(
     const now = new Date()
     const month = now.getMonth() + 1 // JavaScript cuenta los meses desde 0
     const day = now.getDate()
-    console.log('month', month)
-    console.log('day', day)
+
+    // Override month and day for testing
+    // const month = 7
+    // const day = 30
+    // console.log('month', month)
+    // console.log('day', day)
 
     let seasonalStyles: SeasonalStyles = {}
 
-    // Temporada Navideña
+    // Navidad
     if ((month === 12 && day >= 1) || (month === 1 && day <= 6)) {
-      // seasonalStyles[':root'] = {
-      // 	'--primary': '#ff0000', // Rojo Navidad, hsl(0, 100%, 50%)
-      // 	'--secondary': '#00ff00' // Verde Navidad
-      // }
+      console.log('Es Navidad')
+      seasonalStyles = {
+        ':root': {
+          '--background': '0 0% 98%', // Blanco para el fondo
+          '--foreground': '0 0% 20%', // Gris oscuro para el texto
+          '--primary': '0 100% 50%', // Rojo brillante para encabezados H2
+          '--secondary': '30 100% 40%', // Naranja oscuro para encabezados H3
+          '--accent': '120 100% 25%' // Verde oscuro para botones y enlaces
+        },
+        '.dark': {
+          '--background': '0 0% 20%', // Gris oscuro para el fondo
+          '--foreground': '0 0% 98%', // Blanco para el texto
+          '--primary': '0 100% 60%', // Rojo claro para encabezados H2
+          '--secondary': '30 100% 60%', // Naranja claro para encabezados H3
+          '--accent': '120 100% 40%' // Verde claro para botones y enlaces
+        }
+      }
     }
 
     // Halloween
-    // else if (month === 10 && day === 31) {
-    // 	seasonalStyles = {
-    // 		':root': {
-    // 			'--primary': '#ff7518', // Naranja Halloween
-    // 			'--secondary': '#000' // Negro Halloween
-    // 		}
-    // 	}
-    // }
+    else if (month === 10 && day === 31) {
+      console.log('Es Halloween')
+      seasonalStyles = {
+        ':root': {
+          '--background': '40 100% 95%', // Naranja pálido para el fondo
+          '--foreground': '240 50% 10%', // Negro azulado para el texto
+          '--primary': '25 90% 45%', // Naranja brillante para encabezados H2
+          '--secondary': '280 60% 50%', // Morado para encabezados H3
+          '--accent': '0 80% 49%' // Rojo anaranjado para botones y enlaces
+        },
+        '.dark': {
+          '--background': '240 50% 10%', // Negro azulado para el fondo
+          '--foreground': '40 100% 95%', // Naranja pálido para el texto
+          '--primary': '25 90% 60%', // Naranja claro para encabezados H2
+          '--secondary': '280 60% 70%', // Morado claro para encabezados H3
+          '--accent': '0 80% 70%' // Rojo anaranjado claro para botones y enlaces
+        }
+      }
+    }
     // Invierno
-    // else if ((month === 12 && day >= 21) || month === 1 || month === 2 || (month === 3 && day < 20)) {
-    // 	seasonalStyles = {
-    // 		':root': {
-    // 			'--primary': '#B4D2E7', // Azul glaciar
-    // 			'--secondary': '#D3D3D3', // Gris suave
-    // 			'--accent': '#9B1D20' // Rojo Baya
-    // 		}
-    // 	}
-    // }
+    else if (
+      (month === 12 && day >= 21) ||
+      month === 1 ||
+      month === 2 ||
+      (month === 3 && day < 20)
+    ) {
+      console.log('Es Invierno')
+      seasonalStyles = {
+        ':root': {
+          '--background': '210 100% 97%', // Azul hielo para el fondo
+          '--foreground': '210 20% 20%', // Azul oscuro para el texto
+          '--primary': '210 70% 50%', // Azul medio para encabezados H2
+          '--secondary': '0 0% 40%', // Gris oscuro para encabezados H3
+          '--accent': '0 84% 48%' // Rojo brillante para botones y enlaces
+        },
+        '.dark': {
+          '--background': '210 20% 20%', // Azul oscuro para el fondo
+          '--foreground': '210 100% 97%', // Azul hielo para el texto
+          '--primary': '210 70% 70%', // Azul claro para encabezados H2
+          '--secondary': '0 0% 80%', // Gris claro para encabezados H3
+          '--accent': '0 84% 70%' // Rojo claro para botones y enlaces
+        }
+      }
+    }
+
     // Primavera
     else if (
       (month === 3 && day >= 20) ||
@@ -57,20 +101,21 @@ const seasonalStylesPlugin = plugin(
       (month === 6 && day < 21)
     ) {
       console.log('Es Primavera')
+
       seasonalStyles = {
         ':root': {
-          '--primary': '0 0% 9%',
-          '--secondary': '0 0% 96.1%',
-          '--background': '83 100% 96%',
-          '--accent': '4 99% 45%',
-          '--foreground': '180 1% 18%'
+          '--background': '150 100% 95%', // Verde claro para el fondo
+          '--foreground': '150 20% 20%', // Verde oscuro para el texto
+          '--primary': '330 70% 50%', // Rosa medio para encabezados H2
+          '--secondary': '45 100% 28%', // Amarillo mostaza para encabezados H3
+          '--accent': '330 80% 40%' // Rosa oscuro para botones y enlaces
         },
         '.dark': {
-          '--primary': '0 0% 98%',
-          '--secondary': '0 0% 14.9%',
-          '--background': '180 1% 18%',
-          '--accent': '4 99% 66%',
-          '--foreground': '0 0% 98%'
+          '--background': '150 20% 20%', // Verde oscuro para el fondo
+          '--foreground': '150 100% 95%', // Verde claro para el texto
+          '--primary': '330 70% 70%', // Rosa claro para encabezados H2
+          '--secondary': '60 100% 70%', // Amarillo claro para encabezados H3
+          '--accent': '330 90% 80%' // Rosa claro para botones y enlaces
         }
       }
     }
@@ -81,12 +126,23 @@ const seasonalStylesPlugin = plugin(
       month === 8 ||
       (month === 9 && day < 23)
     ) {
+      console.log('Es Verano')
+
       seasonalStyles = {
-        // ':root': {
-        // 	'--primary': '#247BA0', // Azul profundo
-        // 	'--secondary': '#1BE7FF', // Turquesa claro
-        // 	'--accent': '#FF5714' // Naranja Vibrante
-        // }
+        ':root': {
+          '--background': '45 100% 95%', // Amarillo pálido para el fondo
+          '--foreground': '210 15% 25%', // Azul oscuro para el texto
+          '--primary': '20 100% 50%', // Naranja brillante para encabezados H2
+          '--secondary': '10 90% 60%', // Amarillo dorado para encabezados H3
+          '--accent': '4 90% 46%' // Rojo coral para botones y enlaces
+        },
+        '.dark': {
+          '--background': '210 15% 25%', // Azul oscuro para el fondo
+          '--foreground': '45 100% 95%', // Amarillo pálido para el texto
+          '--primary': '20 100% 70%', // Naranja claro para encabezados H2
+          '--secondary': '10 90% 80%', // Amarillo dorado claro para encabezados H3
+          '--accent': '4 100% 76%' // Rojo coral claro para botones y enlaces
+        }
       }
     }
     // Otoño
@@ -96,12 +152,22 @@ const seasonalStylesPlugin = plugin(
       month === 11 ||
       (month === 12 && day < 21)
     ) {
+      console.log('Es Otoño')
       seasonalStyles = {
-        // ':root': {
-        // 	'--primary': '#C05805', // Terracota
-        // 	'--secondary': '#DDA15E', // Beige Suave
-        // 	'--accent': '#4C6A2A' // Verde Musgo
-        // }
+        ':root': {
+          '--background': '35 70% 90%', // Beige pálido para el fondo
+          '--foreground': '20 30% 20%', // Marrón oscuro para el texto
+          '--primary': '25 70% 50%', // Naranja para encabezados H2
+          '--secondary': '45 80% 50%', // Amarillo mostaza para encabezados H3
+          '--accent': '10 90% 40%' // Rojo anaranjado para botones y enlaces
+        },
+        '.dark': {
+          '--background': '20 30% 20%', // Marrón oscuro para el fondo
+          '--foreground': '35 70% 90%', // Beige pálido para el texto
+          '--primary': '25 70% 70%', // Naranja claro para encabezados H2
+          '--secondary': '45 80% 70%', // Amarillo mostaza claro para encabezados H3
+          '--accent': '10 90% 60%' // Rojo anaranjado claro para botones y enlaces
+        }
       }
     }
 
