@@ -8,7 +8,6 @@ import Link from '@/components/icons/Link.astro'
 import LinkButton from '@/components/LinkButton.astro'
 
 import { Picture } from 'astro:assets'
-import DiegoPortrait from '@/assets/diego_bw.webp'
 
 interface Tag {
   name: string
@@ -70,16 +69,16 @@ const PROJECTS: Project[] = [
   {
     title: 'Archivo fotográfico del Banco de España',
     description:
-      'Desarrollo de la versión digital del archivo fotográfico del Banco de España en colaboración con Underbau. Un proyecto con una gran colección de imágenes históricas desarrollado para perdurar en el tiempo.',
+      'Desarrollo de la versión digital del Archivo Fotográfico del Banco de España en colaboración con <strong>Underbau</strong>. Un proyecto con una gran colección de imágenes históricas desarrollado para perdurar en el tiempo.',
     link: 'https://coleccion.bde.es/s/vap_arc/',
     video: '/BdE-sample.webm',
     tags: [TAGS.ASTRO, TAGS.A11YAA, TAGS.TYPESCRIPT],
     isDraft: false
   },
   {
-    title: 'Las Manos | Iberdrola',
+    title: 'Las Manos',
     description:
-      'Landing para la Junta General de Accionistas de Iberdrola (2021). El objetivo fue presentar datos y hechos sobre "Diversidad e Inclusión" de forma visual y humana.',
+      'Landing para la Junta General de Accionistas de <strong>Iberdrola</strong> (2021). El objetivo fue presentar datos y hechos sobre "Diversidad e Inclusión" de forma visual, cercana y humana.',
     isDraft: false,
     link: 'https://diversidad-inclusion-staging.netlify.app/',
     video: '/las-manos.webm',
@@ -88,7 +87,7 @@ const PROJECTS: Project[] = [
   {
     title: 'Unveiling Memories',
     description:
-      'Un gran reto para Iberdrola y Avantgrid en el que tuvimos que trasladar mucho contenido histórico de distintas publicaciones editoriales. Diseño web, "branding" y desarrollo.',
+      'Un gran reto para <strong>Iberdrola</strong> y Avantgrid en el que tuvimos que trasladar mucho contenido histórico de distintas publicaciones editoriales. Diseño web, "branding" y desarrollo.',
     link: 'https://unveilingmemories.com/',
     image: '/images/unveiling-memories.webp',
     tags: [TAGS.ELEVENTY, TAGS.TAILWIND],
@@ -166,9 +165,10 @@ const PROJECTS: Project[] = [
                   </li>
                 ))}
               </ul>
-              <div class='mt-2 text-gray-700 dark:text-gray-100'>
-                {description}
-              </div>
+              <div
+                class='mt-2 text-gray-700 dark:text-gray-100'
+                set:html={description}
+              />
 
               <footer class='mt-4 flex items-end justify-start gap-x-4'>
                 {github && (
