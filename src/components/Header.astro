@@ -2,55 +2,100 @@
 // import HeaderLink from './HeaderLink.astro'
 // import { SITE_TITLE } from '../consts'
 import ModeToggle from '@/components/ModeToggle.astro'
+import { MenuItems, StickyHeader, Astronav } from 'astro-navbar'
+import MenuIcon from '@/components/MenuIcon.astro'
+import AstroNav from '@/components/AstroNav.astro'
+
+import { getI18N } from '@/i18n'
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro'
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<nav
-  class='fixed inset-x-0 top-0 z-20 mx-0 flex h-auto grid-cols-4 justify-between border-b-primary bg-background px-6 py-4 shadow-black/10 transition-shadow duration-700 md:grid md:h-28 md:items-start md:px-12'
+<StickyHeader
+  class='sticky top-0 z-20 mx-0 flex h-auto grid-cols-4 justify-between border-b-primary bg-background shadow-black/10 transition-shadow md:grid md:h-28 md:items-start md:px-12 md:py-4'
+  scrollY={50}
+  defaultClass='shadow-none'
+  activeClass='shadow-3xl'
 >
-  <div class=''>
-    <span class='hidden text-xs md:inline-block'>Nombre</span>
-    <p class='text-xl'>Diego de Sousa</p>
-  </div>
-  <div class='hidden md:block'>
-    <span class='text-xs'>Estado</span>
-    <p class='max-w-[25ch] text-balance'>
-      Disponible para proyectos <em>freelance</em>
-    </p>
-  </div>
-  <div class='hidden md:block'>
-    <span class='text-xs'>Índice</span>
-    <ul id='nav-links' class='*:inline'>
-      <li>
-        <a
-          href='#projects'
-          class="nav-link transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
-          >Proyectos</a
+  <AstroNav closeOnClick>
+    <div
+      class='relative z-20 flex w-full justify-between px-6 py-4 md:px-0 md:py-0'
+    >
+      <div class=''>
+        <span class='hidden text-xs md:block'>{i18n.HEADER.NAMECARD.LABEL}</span
         >
-      </li>
-      <li>
-        <a
-          href='#about'
-          class="nav-link transition-colors after:content-[',_'] hover:text-accent after:hover:text-foreground"
-          >Sobre mí</a
+        <p class='text-xl'>{i18n.HEADER.NAMECARD.NAME}</p>
+      </div>
+      <div class='flex items-center lg:hidden'>
+        <MenuIcon class='h-6 w-6' />
+      </div>
+    </div>
+    <MenuItems
+      class='fixed z-10 hidden h-dvh w-full bg-background/20 px-6 backdrop-blur-2xl *:inset-0 md:relative md:contents md:h-auto md:bg-transparent md:backdrop-blur-none'
+    >
+      <ul
+        class='relative mb-12 mt-24 flex h-full w-full flex-col items-center justify-start gap-10 md:mb-auto md:mt-auto md:contents lg:flex-row lg:gap-5'
+      >
+        <li class='w-full md:w-auto'>
+          <span class='mb-2 block text-sm md:text-xs'
+            >{i18n.HEADER.STATUSCARD.LABEL}</span
+          >
+          <p
+            class='max-w-[25ch] text-balance text-xl md:text-base'
+            set:html={i18n.HEADER.STATUSCARD.STATUS}
+          />
+        </li>
+        <li class='w-full md:w-auto'>
+          <span class='mb-2 block text-sm md:text-xs'
+            >{i18n.HEADER.INDEXCARD.LABEL}</span
+          >
+          <ul
+            id='nav-links'
+            class='flex flex-col gap-y-1 text-xl md:block md:text-base md:*:inline'
+          >
+            <li>
+              <a
+                href='#projects'
+                class="nav-link transition-colors hover:text-accent after:hover:text-foreground md:after:content-[',_']"
+                >{i18n.HEADER.INDEXCARD.NAV.PROJECTS}</a
+              >
+            </li>
+            <li>
+              <a
+                href='#about'
+                class="nav-link transition-colors hover:text-accent after:hover:text-foreground md:after:content-[',_']"
+                >{i18n.HEADER.INDEXCARD.NAV.ABOUT}</a
+              >
+            </li>
+            <li>
+              <a
+                href='#contact'
+                class='nav-link transition-colors hover:text-accent after:hover:text-foreground'
+                >{i18n.HEADER.INDEXCARD.NAV.CONTACT}</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li
+          class='w-full self-start justify-self-start md:w-auto md:min-w-20 md:justify-self-end'
         >
-      </li>
-      <li>
-        <a
-          href='#contact'
-          class='nav-link transition-colors hover:text-accent after:hover:text-foreground'
-          >Contacto</a
-        >
-      </li>
-    </ul>
-  </div>
-  <ModeToggle />
-
-  <!-- <div class='absolute inset-x-0 bottom-0 h-0.5 w-full bg-accent'></div> -->
-</nav>
+          <label class='mb-2 block text-sm md:text-xs'
+            >{i18n.HEADER.MISCCARD.LABEL}</label
+          >
+          <div class='flex flex-row items-center gap-4'>
+            <ModeToggle />
+            <LanguageSwitcher />
+          </div>
+        </li>
+      </ul>
+    </MenuItems>
+  </AstroNav>
+</StickyHeader>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav')
+  document.addEventListener('astro:page-load', () => {
+    const nav = document.querySelector('.astronav-sticky-header')
     const navLinks = document.querySelectorAll('.nav-link')
     const sections = document.querySelectorAll('section[data-section]')
 
@@ -68,24 +113,41 @@ import ModeToggle from '@/components/ModeToggle.astro'
         })
       },
       {
-        threshold: 0.5
+        threshold: 0.2
       }
     )
 
     sections.forEach((section) => observer.observe(section))
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav?.classList.add('shadow-3xl')
-      } else {
-        nav?.classList.remove('shadow-3xl')
-      }
-    })
+    // window.addEventListener('scroll', () => {
+    //   if (window.scrollY > 50) {
+    //     nav?.classList.add('shadow-3xl')
+    //   } else {
+    //     nav?.classList.remove('shadow-3xl')
+    //   }
+    // })
   })
 </script>
 
 <style>
   .nav-link.active {
-    color: var(--accent-color); /* Ajusta este color según tu diseño */
+    color: var(--accent-color);
   }
 </style>
+
+<!-- <style is:global>
+  /* Animate menu items when the class "hidden" is removed */
+  .astronav-items ul {
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility 0s,
+      opacity 2s;
+  }
+
+  .astronav-items:not(.hidden) ul {
+    visibility: visible;
+
+    opacity: 1;
+  }
+</style> -->

@@ -1,9 +1,15 @@
 ---
 import { Image } from 'astro:assets'
 import selloPontevedra from '../assets/sello-pontevedra.webp'
+import { getI18N } from '@/i18n'
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<h2 class='mx-6 text-3xl font-bold text-primary md:mx-0'>Contacto</h2>
+<h2 class='mx-6 text-3xl font-bold text-primary md:mx-0'>
+  {i18n.CONTACTSECTION.TITLE}
+</h2>
 <div
   class='relative flex min-h-60 flex-col items-center justify-center bg-white px-6 text-sm text-foreground shadow-lg dark:text-background md:px-8 md:text-base'
 >
@@ -37,12 +43,12 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
     <input type='hidden' name='from_name' value='diegodesousa.com' />
 
     <div class='flex flex-row items-center gap-2'>
-      <label for='name'>Hola Diego, me llamo</label>
+      <label for='name'>{i18n.CONTACTSECTION.FORM.GREETING}</label>
       <input
         type='text'
         name='name'
         id='name'
-        placeholder='Juan Nadie'
+        placeholder={i18n.CONTACTSECTION.FORM.NAME_PLACEHOLDER}
         maxlength='256'
         required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
@@ -50,12 +56,12 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       />
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='email'>Mi email es</label>
+      <label for='email'>{i18n.CONTACTSECTION.FORM.EMAIL_LABEL}</label>
       <input
         type='email'
         name='email'
         id='email'
-        placeholder='juan.nadie@gmail.com'
+        placeholder={i18n.CONTACTSECTION.FORM.EMAIL_PLACEHOLDER}
         maxlength='256'
         required
         class='field-sizing inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
@@ -63,9 +69,9 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       />
     </div>
     <div class='flex flex-row items-start gap-2'>
-      <label for='DETALLES'>Estoy buscando ayuda con</label>
+      <label for='DETALLES'>{i18n.CONTACTSECTION.FORM.HELP_LABEL}</label>
       <textarea
-        placeholder='diseño web, desarrollo de mi diseño, tienda online, etc.'
+        placeholder={i18n.CONTACTSECTION.FORM.HELP_PLACEHOLDER}
         maxlength='5000'
         id='DETALLES'
         name='DETALLES'
@@ -74,36 +80,36 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
       ></textarea>
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='PRESUPUESTO'>Mi presupuesto está entre</label>
+      <label for='PRESUPUESTO'>{i18n.CONTACTSECTION.FORM.BUDGET_LABEL}</label>
       <div class='l-pricing-wrapper'>
         <input
           type='text'
           id='PRESUPUESTO'
           name='PRESUPUESTO'
           data-name='PRESUPUESTO'
-          placeholder='1500-3000€'
+          placeholder={i18n.CONTACTSECTION.FORM.BUDGET_PLACEHOLDER}
           maxlength='256'
           class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
         />
       </div>
     </div>
     <div class='flex flex-row items-center gap-2'>
-      <label for='DEADLINE'>Necesito tenerlo listo en</label>
+      <label for='DEADLINE'>{i18n.CONTACTSECTION.FORM.DEADLINE_LABEL}</label>
       <input
         type='text'
         id='DEADLINE'
         name='DEADLINE'
         data-name='DEADLINE'
-        placeholder='seis semanas'
+        placeholder={i18n.CONTACTSECTION.FORM.DEADLINE_PLACEHOLDER}
         maxlength='256'
         class='field-sizing border-lightpurple text-purple inline-block h-10 border-b bg-transparent px-2 py-2 text-sm font-semibold md:text-base'
       />
     </div>
     <button
       type='submit'
-      class='cursor-pointer self-start underline underline-offset-4 transition-all duration-300 ease-in-out hover:scale-105 hover:text-accent'
+      class='cursor-pointer self-start text-accent underline underline-offset-4 transition-all duration-300 ease-in-out hover:scale-105 hover:text-accent'
     >
-      Enviar
+      {i18n.CONTACTSECTION.FORM.SUBMIT_BUTTON}
     </button>
   </form>
   <div id='result' class='hidden py-8'></div>
@@ -111,7 +117,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     const form = document.getElementById('form') as HTMLFormElement | null
     const result = document.getElementById('result') as HTMLElement | null
 
@@ -125,7 +131,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
 
         form.classList.add('hidden')
         result.classList.remove('hidden')
-        result.innerHTML = 'Por favor, espera...'
+        result.innerHTML = '{i18n.CONTACTSECTION.FORM.WAIT_MESSAGE}'
         result.classList.add('text-blue-500', 'font-semibold')
 
         console.log('Formulario enviado, esperando respuesta...')
@@ -143,7 +149,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
           const jsonResponse = await response.json()
           console.log('Respuesta recibida:', jsonResponse)
           if (jsonResponse.success) {
-            result.innerHTML = '¡Correo enviado con éxito!'
+            result.innerHTML = '{i18n.CONTACTSECTION.FORM.SUCCESS_MESSAGE}'
           } else {
             result.innerHTML = jsonResponse.message
           }
@@ -151,7 +157,7 @@ import selloPontevedra from '../assets/sello-pontevedra.webp'
           result.classList.add('text-green-500')
         } catch (error) {
           console.error(error)
-          result.innerHTML = 'Algo salió mal!'
+          result.innerHTML = '{i18n.CONTACTSECTION.FORM.ERROR_MESSAGE}'
           result.classList.remove('text-blue-500')
           result.classList.add('text-red-500')
         } finally {

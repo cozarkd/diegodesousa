@@ -1,37 +1,15 @@
 ---
+import { getI18N } from '@/i18n'
 
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<h2 class='text-3xl font-bold text-primary'>Sobre mí</h2>
+<h2 class='text-3xl font-bold text-primary'>{i18n.ABOUTSECTION.H2}</h2>
 
 <article class='flex flex-col items-center justify-center gap-8 md:flex-row'>
   <div
-    class='order-2 text-pretty md:order-1 [&>p>strong]:font-normal [&>p>strong]:text-accent dark:[&>p>strong]:text-accent [&>p]:mb-4'
-  >
-    <p>
-      Con 12 años, mi padre trajo a casa un ordenador que ya no podía usar en su
-      trabajo. Me dijeron que si lo rompía me quedaba sin él. Unos días después,
-      obviamente, estaba "roto". Conseguí arreglarlo y romperlo una y otra vez.
-      Ahí germinó la semilla de mi relación con el mundo digital.
-    </p>
-
-    <p>
-      <strong>Diseñador gráfico</strong> de formación, <strong
-        >desarrollador</strong
-      > de vocación. Creo que mi mayor fortaleza está justo en esa intersección,
-      entendiendo la importancia del diseño y traduciéndolo a una experiencia de
-      usuario óptima.
-    </p>
-
-    <p>
-      En los últimos años me he orientado a <strong
-        >proyectos accesibles, creativos y performantes</strong
-      >.
-    </p>
-    <p>
-      Colaboro como freelance con clientes finales, estudios, agencias y
-      empresas haciendo <strong>webs creativas y aplicaciones web</strong>; sin
-      dejar <del>demasiado</del> de lado proyectos mis personales.
-    </p>
-  </div>
+    class='order-2 text-pretty md:order-1 [&>p>strong]:font-bold dark:[&>p>strong]:font-bold [&>p]:mb-4'
+    set:html={i18n.ABOUTSECTION.CONTENT}
+  />
 </article>

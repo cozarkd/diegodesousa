@@ -1,11 +1,13 @@
 ---
+import { getI18N } from '@/i18n'
 
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <footer class='relative bg-background px-4 py-8 text-center text-xs'>
   <p>
-    Una curiosidad: como yo, esta web cambia según las estaciones del año y la
-    hora del día. 🌱🌞🍂❄️
+    {i18n.FOOTER.COPY.SEASONSCHANGE}
   </p>
   {
     //   <p>

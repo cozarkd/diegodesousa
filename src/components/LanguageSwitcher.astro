@@ -1,0 +1,62 @@
+---
+import { LANGUAGES } from '../i18n/ui'
+import {
+  getRouteFromUrl,
+  useTranslatedPath,
+  getLangFromUrl
+} from '../i18n/utils'
+
+const route = getRouteFromUrl(Astro.url)
+const lang = getLangFromUrl(Astro.url)
+const translatePath = useTranslatedPath(lang)
+
+const currentLocaleData = LANGUAGES[lang]
+const otherLocales = Object.values(LANGUAGES).filter(
+  (locale) => locale.code !== lang
+)
+---
+
+<div class='relative inline-block text-left'>
+  <div class='group text-sm transition-all'>
+    <button
+      type='button'
+      class='inline-flex w-full items-center justify-start gap-x-2 px-3 py-2 transition hover:scale-125 hover:text-accent'
+      aria-expanded='true'
+      aria-haspopup='true'
+    >
+      {lang.toUpperCase()}
+    </button>
+    <ul
+      class='group-hover:animate-fade-down group-hover:animate-duration-200 absolute left-0 right-auto top-8 hidden min-w-[10rem] bg-background pt-0.5 shadow-lg group-hover:block dark:bg-gray-800 md:left-auto md:right-0'
+    >
+      {
+        otherLocales.map((locale) => (
+          <li class='py-[2px]'>
+            <a
+              class='whitespace-no-wrap inline-flex w-full items-center justify-start gap-x-2 px-3 py-2 text-base transition hover:bg-white/50 hover:text-accent dark:hover:bg-white/5'
+              href={translatePath(`/${route ? route : ''}`, locale.code)}
+            >
+              {locale.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  @keyframes fade-down {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .group-hover\\:animate-fade-down {
+    animation: fade-down 0.2s ease-out forwards;
+  }
+</style>

@@ -10,6 +10,10 @@ import tailwindcssNesting from 'tailwindcss/nesting'
 export default defineConfig({
 	site: 'https://diegodesousa.com',
 	integrations: [mdx(), sitemap(), tailwind()],
+	i18n: {
+		defaultLocale: "es",
+		locales: ["es", "en", "pt"],
+	},
 	server: { port: 3000 },
 	vite: {
 		css: {

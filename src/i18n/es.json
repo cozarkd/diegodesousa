@@ -1,0 +1,76 @@
+{
+	"SEO_TITLE_1": "Diego de Sousa | desarrollador frontend",
+	"SEO_TITLE_2": "",
+	"SEO_DESCRIPTION": "Desarrollador web que trabaja con startups y proyectos creativos desde el cariño y la inmersión. Desde la conceptualización hasta la experiencia de usuario; y más allá.",
+	"HEADER": {
+		"LOGO": "Volver a la página de inicio de Diego de Sousa",
+		"NAMECARD": {
+			"LABEL": "Nombre",
+			"NAME": "Diego de Sousa"
+		},
+		"STATUSCARD": {
+			"LABEL": "Estado",
+			"STATUS": "Disponible para proyectos <em>freelance</em>"
+		},
+		"INDEXCARD": {
+			"LABEL": "Índice",
+			"NAV": {
+				"ABOUT": "Sobre mí",
+				"PROJECTS": "Proyectos",
+				"CONTACT": "Contacto"
+			}
+		},
+		"MISCCARD": {
+			"LABEL": "Miscelánea",
+			"NAV": {
+				"LANG": "Idioma",
+				"THEME": {
+					"LABEL": "Tema",
+					"LIGHT": "Claro",
+					"DARK": "Oscuro",
+					"SYSTEM": "Sistema",
+					"SWITCH": "Cambiar tema"
+				}
+			}
+		}
+	},
+	"HERO": {
+		"H1": "<span class='block'>Me llamo Diego,</span> soy un desarrollador <em>frontend</em> especializado en webs accesibles, interactivas y rápidas.",
+		"PORTRAIT": {
+			"ALT": "Foto de Diego de Sousa"
+		}
+	},
+	"PROJECTSSECTION": {
+		"H2": "Proyectos destacados",
+		"SOURCECODE": "Ver código fuente",
+		"LIVEDEMO": "Ver proyecto publicado"
+	},
+	"ABOUTSECTION": {
+		"H2": "Sobre mí",
+		"CONTENT": "<p>Con 12 años, mi padre trajo a casa un ordenador que ya no podía usar en su trabajo. Me dijeron que si lo rompía me quedaba sin él. Unos días después, obviamente, estaba \"roto\". Conseguí arreglarlo y romperlo una y otra vez. Ahí germinó la semilla de mi relación con el mundo digital.</p><p><strong>Diseñador gráfico</strong> de formación, <strong>desarrollador</strong> de vocación. Creo que mi mayor fortaleza está justo en esa intersección, entendiendo la importancia del diseño y traduciéndolo a una experiencia de usuario óptima.</p><p>En los últimos años me he orientado a <strong>proyectos accesibles, creativos y performantes</strong>.</p><p>Colaboro como freelance con clientes finales, estudios, agencias y empresas haciendo <strong>webs creativas y aplicaciones web</strong>; sin dejar <del>demasiado</del> de lado proyectos mis personales.</p>"
+	},
+	"CONTACTSECTION": {
+		"TITLE": "Contacto",
+		"FORM": {
+			"GREETING": "Hola Diego, me llamo",
+			"NAME_PLACEHOLDER": "Juan Nadie",
+			"EMAIL_LABEL": "Mi email es",
+			"EMAIL_PLACEHOLDER": "juan.nadie@gmail.com",
+			"HELP_LABEL": "Estoy buscando ayuda con",
+			"HELP_PLACEHOLDER": "diseño web, desarrollo de mi diseño, tienda online, etc.",
+			"BUDGET_LABEL": "Mi presupuesto está entre",
+			"BUDGET_PLACEHOLDER": "1500-3000€",
+			"DEADLINE_LABEL": "Necesito tenerlo listo en",
+			"DEADLINE_PLACEHOLDER": "seis semanas",
+			"SUBMIT_BUTTON": "Enviar",
+			"SUCCESS_MESSAGE": "¡Correo enviado con éxito!",
+			"ERROR_MESSAGE": "Algo salió mal!",
+			"WAIT_MESSAGE": "Por favor, espera..."
+		}
+	},
+	"FOOTER": {
+		"COPY": {
+			"SEASONSCHANGE": "Una curiosidad: como yo, esta web cambia según las estaciones del año y la hora del día. 🌱🌞🍂❄️"
+		}
+	}
+}

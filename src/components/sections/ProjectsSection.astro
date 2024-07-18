@@ -7,159 +7,91 @@ import Tauri from '@/components/icons/Tauri.astro'
 import Link from '@/components/icons/Link.astro'
 import LinkButton from '@/components/LinkButton.astro'
 
-import { Picture } from 'astro:assets'
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import { getI18N } from '@/i18n'
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
 interface Tag {
   name: string
   class: string
-  icon: any // Puedes especificar un tipo más detallado si conoces la estructura
+  icon?: any
 }
 
-// Definición de la interfaz para un Proyecto
 interface Project {
   title: string
   description: string
   tags: Tag[]
-  link?: string // '?' indica que el campo es opcional
+  link?: string
   github?: string
   image?: string
   video?: string
   isDraft: boolean
+  language: string
 }
 
-const TAGS = {
-  NEXT: {
-    name: 'Next.js',
-    class: 'bg-black text-white',
-    icon: NextJS
-  },
-  TAILWIND: {
-    name: 'Tailwind CSS',
-    class: 'bg-[#003159] text-white',
-    icon: Tailwind
-  },
-  ELEVENTY: {
-    name: '11ty',
-    class: 'bg-black text-white',
-    icon: Eleventy
-  },
-  TAURI: {
-    name: 'Tauri',
-    class: 'bg-[#A4A4A4] text-black',
-    icon: Tauri
-  },
-  ASTRO: {
-    name: 'Astro',
-    class: 'bg-[#0D2B3E] text-white',
-    icon: Picture
-  },
-  A11YAA: {
-    name: 'WCAG AA',
-    class: 'bg-[#FFD700] text-black',
-    icon: Picture
-  },
-  TYPESCRIPT: {
-    name: 'TypeScript',
-    class: 'bg-[#007ACC] text-white',
-    icon: Picture
-  }
-}
+const projects = await getCollection('projects')
 
-const PROJECTS: Project[] = [
-  {
-    title: 'Archivo fotográfico del Banco de España',
-    description:
-      'Desarrollo de la versión digital del Archivo Fotográfico del Banco de España en colaboración con <strong>Underbau</strong>. Un proyecto con una gran colección de imágenes históricas desarrollado para perdurar en el tiempo.',
-    link: 'https://coleccion.bde.es/s/vap_arc/',
-    video: '/BdE-sample.webm',
-    tags: [TAGS.ASTRO, TAGS.A11YAA, TAGS.TYPESCRIPT],
-    isDraft: false
-  },
-  {
-    title: 'Las Manos',
-    description:
-      'Landing para la Junta General de Accionistas de <strong>Iberdrola</strong> (2021). El objetivo fue presentar datos y hechos sobre "Diversidad e Inclusión" de forma visual, cercana y humana.',
-    isDraft: false,
-    link: 'https://diversidad-inclusion-staging.netlify.app/',
-    video: '/las-manos.webm',
-    tags: [TAGS.A11YAA]
-  },
-  {
-    title: 'Unveiling Memories',
-    description:
-      'Un gran reto para <strong>Iberdrola</strong> y Avantgrid en el que tuvimos que trasladar mucho contenido histórico de distintas publicaciones editoriales. Diseño web, "branding" y desarrollo.',
-    link: 'https://unveilingmemories.com/',
-    image: '/images/unveiling-memories.webp',
-    tags: [TAGS.ELEVENTY, TAGS.TAILWIND],
-    isDraft: false
-  },
-  {
-    title: 'Floralia',
-    description:
-      'Proyecto personal de una web app que documenta información sobre plantas de huerto y jardín. En constante desarrollo y crecimiento. Versión Beta.',
-    link: 'https://floralia.app',
-    image: '/images/floralia.webp',
-    tags: [TAGS.ELEVENTY, TAGS.TAILWIND],
-    isDraft: false
-  },
-  {
-    title: 'Captain Canvas',
-    description:
-      'Aplicación de escritorio para profesionales de la impresión digital. Maqueta automáticamente imágenes en lienzos para aprovechar el espacio y material. Landing y aplicación de escritorio.',
-    link: 'https://captaincanvas.app',
-    image: '/blog-placeholder-2.jpg',
-    tags: [TAGS.TAURI, TAGS.NEXT, TAGS.TAILWIND],
-    isDraft: true
-  }
-]
+const filteredProjects = projects
+  .map((project) => project.data)
+  .filter((project) => project.language === currentLocale)
 ---
 
-<h2 class='text-3xl font-bold text-primary'>Proyectos destacados</h2>
+<h2 class='text-3xl font-bold text-primary'>{i18n.PROJECTSSECTION.H2}</h2>
 <div class='flex flex-col gap-y-16'>
   {
-    PROJECTS.filter((project) => !project.isDraft).map(
-      ({ image, title, description, tags, link, github, video }) => (
+    filteredProjects
+      .filter((project: Project) => !project.isDraft)
+      .map((project: Project) => (
         <article class='group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
           <div class='w-full md:w-1/2'>
-            <div class='relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-sm shadow-xl transition duration-500 ease-in-out sm:rounded-sm md:group-hover:-translate-y-1 md:group-hover:shadow-2xl'>
-              {
-                // If there is a video, show it, if not show the image
-              }
-              {video && (
+            <div
+              class={`relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-sm shadow-xl transition duration-500 ease-in-out sm:rounded-sm md:group-hover:-translate-y-1 md:group-hover:shadow-2xl`}
+            >
+              {project.video ? (
                 <video
-                  src={video}
+                  src={project.video}
                   autoplay
                   loop
                   muted
                   playsinline
+                  poster={project.image}
                   class='w-full object-contain object-top transition duration-500'
-                />
-              )}
-              {image && (
-                <img
-                  src={image}
-                  alt={title}
-                  loading='lazy'
-                  class='w-full object-contain object-top transition duration-500'
-                />
+                >
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      loading='lazy'
+                      class='w-full object-contain object-top transition duration-500'
+                    />
+                  )}
+                </video>
+              ) : (
+                project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    loading='lazy'
+                    class='w-full object-contain object-top transition duration-500'
+                  />
+                )
               )}
             </div>
           </div>
           <div class='w-full md:w-1/2 md:max-w-lg'>
             <h3 class='mb-4 text-balance text-2xl font-bold text-secondary dark:text-secondary'>
-              {title}
+              {project.title}
             </h3>
             <div class='mt-2 flex flex-wrap'>
               <ul class='mb-2 flex flex-row gap-x-2'>
-                {tags.map((tag) => (
+                {project.tags.map((tag: Tag) => (
                   <li>
                     <span
                       class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1 `}
                     >
-                      {
-                        //<tag.icon class='size-4' />
-                      }
-
                       {tag.name}
                     </span>
                   </li>
@@ -167,29 +99,27 @@ const PROJECTS: Project[] = [
               </ul>
               <div
                 class='mt-2 text-gray-700 dark:text-gray-100'
-                set:html={description}
+                set:html={project.description}
               />
-
               <footer class='mt-4 flex items-end justify-start gap-x-4'>
-                {github && (
+                {project.github && (
                   <LinkButton asChild>
-                    <a href={github}>
+                    <a href={project.github}>
                       <GitHub class='size-6' />
-                      Código
+                      {i18n.PROJECTSSECTION.SOURCECODE}
                     </a>
                   </LinkButton>
                 )}
-                {link && (
-                  <LinkButton href={link} asChild>
+                {project.link && (
+                  <LinkButton href={project.link} asChild>
                     <Link class='size-4' />
-                    Ver proyecto publicado
+                    {i18n.PROJECTSSECTION.LIVEDEMO}
                   </LinkButton>
                 )}
               </footer>
             </div>
           </div>
         </article>
-      )
-    )
+      ))
   }
 </div>

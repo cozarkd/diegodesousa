@@ -1,0 +1,76 @@
+{
+	"SEO_TITLE_1": "Diego de Sousa | Frontend Developer",
+	"SEO_TITLE_2": "",
+	"SEO_DESCRIPTION": "Web developer working with startups and creative projects with care and immersion. From conceptualization to user experience; and beyond.",
+	"HEADER": {
+		"LOGO": "Return to Diego de Sousa's homepage",
+		"NAMECARD": {
+			"LABEL": "Name",
+			"NAME": "Diego de Sousa"
+		},
+		"STATUSCARD": {
+			"LABEL": "Status",
+			"STATUS": "Available for <em>freelance</em> projects"
+		},
+		"INDEXCARD": {
+			"LABEL": "Index",
+			"NAV": {
+				"ABOUT": "About Me",
+				"PROJECTS": "Projects",
+				"CONTACT": "Contact"
+			}
+		},
+		"MISCCARD": {
+			"LABEL": "Miscellaneous",
+			"NAV": {
+				"LANG": "Language",
+				"THEME": {
+					"LABEL": "Theme",
+					"LIGHT": "Light",
+					"DARK": "Dark",
+					"SYSTEM": "System",
+					"SWITCH": "Switch Theme"
+				}
+			}
+		}
+	},
+	"HERO": {
+		"H1": "<span class='block'>My name is Diego,</span> I'm a frontend developer specializing in accessible, interactive, and fast websites.",
+		"PORTRAIT": {
+			"ALT": "Photo of Diego de Sousa"
+		}
+	},
+	"PROJECTSSECTION": {
+		"H2": "Featured Projects",
+		"SOURCECODE": "View Source Code",
+		"LIVEDEMO": "View Live Project"
+	},
+	"ABOUTSECTION": {
+		"H2": "About Me",
+		"CONTENT": "<p>When I was 12, my dad brought home a computer that he could no longer use at work. They told me that if I broke it, I would lose it. A few days later, it was 'broken'. I managed to fix and break it over and over again. That was the start of my relationship with the digital world.</p><p><strong>Graphic Designer</strong> by training, <strong>developer</strong> by vocation. I believe my greatest strength lies at the intersection, understanding the importance of design and translating it into an optimal user experience.</p><p>In recent years, I have focused on <strong>accessible, creative, and high-performance projects</strong>.</p><p>I work as a freelancer with end clients, studios, agencies, and companies creating <strong>creative websites and web applications</strong>; while also working on my personal projects.</p>"
+	},
+	"CONTACTSECTION": {
+		"TITLE": "Contact",
+		"FORM": {
+			"GREETING": "Hi Diego, my name is",
+			"NAME_PLACEHOLDER": "John Doe",
+			"EMAIL_LABEL": "My email is",
+			"EMAIL_PLACEHOLDER": "john.doe@gmail.com",
+			"HELP_LABEL": "I need help with",
+			"HELP_PLACEHOLDER": "web design, developing my design, online store, etc.",
+			"BUDGET_LABEL": "My budget is between",
+			"BUDGET_PLACEHOLDER": "1500-3000€",
+			"DEADLINE_LABEL": "I need it ready by",
+			"DEADLINE_PLACEHOLDER": "six weeks",
+			"SUBMIT_BUTTON": "Submit",
+			"SUCCESS_MESSAGE": "Email sent successfully!",
+			"ERROR_MESSAGE": "Something went wrong!",
+			"WAIT_MESSAGE": "Please wait..."
+		}
+	},
+	"FOOTER": {
+		"COPY": {
+			"SEASONSCHANGE": "Fun fact: like me, this website changes with the seasons and time of day. 🌱🌞🍂❄️"
+		}
+	}
+}

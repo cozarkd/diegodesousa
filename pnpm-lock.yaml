@@ -50,6 +50,9 @@ importers:
       astro:
         specifier: ^4.5.4
         version: 4.5.12(typescript@5.4.3)
+      astro-navbar:
+        specifier: ^2.3.3
+        version: 2.3.3
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -89,6 +92,9 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.4.3
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@typescript-eslint/parser':
         specifier: ^6.21.0
@@ -1676,6 +1682,9 @@ packages:
   astro-eslint-parser@0.16.3:
     resolution: {integrity: sha512-CGaBseNtunAV2DCpwBXqTKq8+9Tw65XZetMaC0FsMoZuLj0gxNIkbCf2QyKYScVrNOU7/ayfNdVw8ZCSHBiqCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  astro-navbar@2.3.3:
+    resolution: {integrity: sha512-WAiQUVh3fS+bUw1oDcWpddFj30z3VgmMDmSjpU78idCXiV5t4KtlBvKV0mE/+hpcGLK0ji1evvCbk2wQ7wphyQ==}
 
   astro-robots-txt@1.0.0:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
@@ -4432,8 +4441,8 @@ packages:
     peerDependencies:
       zod: ^3.22.4
 
-  zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -4559,7 +4568,7 @@ snapshots:
   '@astrojs/sitemap@3.1.2':
     dependencies:
       sitemap: 7.1.1
-      zod: 3.22.4
+      zod: 3.23.8
 
   '@astrojs/tailwind@5.1.0(astro@4.5.12(typescript@5.4.3))(tailwindcss@3.4.3)':
     dependencies:
@@ -5987,10 +5996,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  astro-navbar@2.3.3: {}
+
   astro-robots-txt@1.0.0:
     dependencies:
       valid-filename: 4.0.0
-      zod: 3.22.4
+      zod: 3.23.8
 
   astro@4.5.12(typescript@5.4.3):
     dependencies:
@@ -6054,8 +6065,8 @@ snapshots:
       vitefu: 0.2.5(vite@5.2.6)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
-      zod: 3.22.4
-      zod-to-json-schema: 3.22.5(zod@3.22.4)
+      zod: 3.23.8
+      zod-to-json-schema: 3.22.5(zod@3.23.8)
     optionalDependencies:
       sharp: 0.32.6
     transitivePeerDependencies:
@@ -9518,10 +9529,10 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod-to-json-schema@3.22.5(zod@3.22.4):
+  zod-to-json-schema@3.22.5(zod@3.23.8):
     dependencies:
-      zod: 3.22.4
+      zod: 3.23.8
 
-  zod@3.22.4: {}
+  zod@3.23.8: {}
 
   zwitch@2.0.4: {}
