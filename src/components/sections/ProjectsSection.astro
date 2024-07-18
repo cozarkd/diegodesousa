@@ -7,74 +7,58 @@ import Tauri from '@/components/icons/Tauri.astro'
 import Link from '@/components/icons/Link.astro'
 import LinkButton from '@/components/LinkButton.astro'
 
-import { Image } from 'astro:assets'
-import { getCollection } from 'astro:content'
-import { getI18N } from '@/i18n'
+import { Image } from 'astro:assets' // Importa el componente Image de Astro para manejar imágenes.
+import { getCollection } from 'astro:content' // Importa getCollection para obtener datos de contenido.
+import { getI18N } from '@/i18n' // Importa la función getI18N para manejo de internacionalización (i18n).
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro // Obtiene el idioma actual.
+const i18n = getI18N({ currentLocale }) // Obtiene las traducciones correspondientes al idioma actual.
 
-interface Tag {
-  name: string
-  class: string
-  icon?: any
-}
+const projects = await getCollection('projects') // Obtiene la colección de proyectos.
 
-interface Project {
-  title: string
-  description: string
-  tags: Tag[]
-  link?: string
-  github?: string
-  image?: string
-  video?: string
-  isDraft: boolean
-  language: string
-}
-
-const projects = await getCollection('projects')
+console.log('Projects:', projects) // Depuración: muestra la lista completa de proyectos.
 
 const filteredProjects = projects
-  .map((project) => project.data)
-  .filter((project) => project.language === currentLocale)
+  .filter((project) => {
+    // Filtra los proyectos según el idioma actual.
+    return project.data.language === currentLocale
+  })
+  .map((project) => {
+    // Mapea los datos del proyecto para obtener la estructura deseada.
+    const projectData = {
+      ...project.data,
+      cover: project.data.cover, // Imagen de portada del proyecto.
+      tags: project.data.tags // Etiquetas del proyecto.
+    }
+    return projectData
+  })
 ---
 
 <h2 class='text-3xl font-bold text-primary'>{i18n.PROJECTSSECTION.H2}</h2>
 <div class='flex flex-col gap-y-16'>
   {
     filteredProjects
-      .filter((project: Project) => !project.isDraft)
-      .map((project: Project) => (
+      .filter((project) => {
+        // Filtra los proyectos que no son borradores.
+        return !project.isDraft
+      })
+      .map((project) => (
         <article class='group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
           <div class='w-full md:w-1/2'>
-            <div
-              class={`relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-sm shadow-xl transition duration-500 ease-in-out sm:rounded-sm md:group-hover:-translate-y-1 md:group-hover:shadow-2xl`}
-            >
+            <div class='overflow-hidden rounded-lg shadow-lg'>
               {project.video ? (
-                <video
-                  src={project.video}
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                  poster={project.image}
-                  class='w-full object-contain object-top transition duration-500'
-                >
-                  {project.image && (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      loading='lazy'
-                      class='w-full object-contain object-top transition duration-500'
-                    />
-                  )}
+                // Si el proyecto tiene un video, lo muestra.
+                // eslint-disable-next-line astro/jsx-a11y/media-has-caption
+                <video controls>
+                  <source src={project.video} type='video/mp4' />
+                  Your browser does not support the video tag.
                 </video>
               ) : (
-                project.image && (
+                // Si el proyecto tiene una imagen de portada, la muestra.
+                project.cover && (
                   <Image
-                    src={project.image}
+                    src={project.cover}
                     alt={project.title}
-                    loading='lazy'
                     class='w-full object-contain object-top transition duration-500'
                   />
                 )
@@ -87,10 +71,10 @@ const filteredProjects = projects
             </h3>
             <div class='mt-2 flex flex-wrap'>
               <ul class='mb-2 flex flex-row gap-x-2'>
-                {project.tags.map((tag: Tag) => (
+                {project.tags.map((tag) => (
                   <li>
                     <span
-                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1 `}
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1`}
                     >
                       {tag.name}
                     </span>

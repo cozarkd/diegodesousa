@@ -2,7 +2,7 @@
 title: 'Floralia'
 description: 'Proyecto personal de una web app que documenta información sobre plantas de huerto y jardín. En constante desarrollo y crecimiento. Versión Beta.'
 link: 'https://floralia.app'
-image: '../floralia.webp'
+cover: '../floralia.webp'
 tags:
   - name: '11ty'
     class: 'bg-black text-white'

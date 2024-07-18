@@ -67,13 +67,18 @@ const { closeOnClick = false } = Astro.props
   }
 
   function toggleMobileNav() {
+    // ;[...document.querySelectorAll('.astronav-toggle')].forEach((el) => {
+    //   el.closest('#astronav-menu').classList.toggle('opened')
+    //   //   el.toggleAttribute('aria-expanded')
+    //   //   const navToggle = document.querySelector('#astronav-menu')
+    //   //   navToggle?.classList.toggle('opened')
+    //   const navMenuItems = document.querySelector('.astronav-items')
+    //   navMenuItems?.classList.toggle('hidden')
+    // })
     ;[...document.querySelectorAll('.astronav-toggle')].forEach((el) => {
-      //   el.classList.toggle('hidden')
-      //   el.toggleAttribute('aria-expanded')
-      el.closest('#astronav-menu').classList.toggle('opened')
-      const navMenuItems = document.querySelector('.astronav-items')
-      navMenuItems?.classList.toggle('hidden')
+      el.classList.toggle('hidden')
     })
+    document.querySelector('#astronav-menu').classList.toggle('opened')
   }
 
   function toggleDropdownMenu(event, menu, dropdownMenus) {
@@ -167,10 +172,11 @@ const { closeOnClick = false } = Astro.props
       navLink.forEach((item) => {
         item.addEventListener('click', () => {
           navMenuItems?.classList.add('hidden')
-          MenuIcons.forEach((el) => {
-            el.classList.toggle('hidden')
-          })
+          //   MenuIcons.forEach((el) => {
+          //     el.classList.toggle('hidden')
+          //   })
           navToggle.setAttribute('aria-expanded', 'false')
+          navToggle.classList.remove('opened')
         })
       })
   }

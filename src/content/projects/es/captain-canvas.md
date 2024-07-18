@@ -2,7 +2,7 @@
 title: 'Captain Canvas'
 description: 'Aplicación de escritorio para profesionales de la impresión digital. Maqueta automáticamente imágenes en lienzos para aprovechar el espacio y material. Landing y aplicación de escritorio.'
 link: 'https://captaincanvas.app'
-image: '../floralia.webp'
+cover: '../floralia.webp'
 tags:
   - name: 'Tauri'
     class: 'bg-[#A4A4A4] text-black'
