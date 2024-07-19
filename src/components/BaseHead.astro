@@ -15,6 +15,8 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title, description, image = '/folio_duotono_bg2x.png' } = Astro.props
+
+import { Fathom } from 'astro-fathom'
 ---
 
 <!-- Global Metadata -->
@@ -53,3 +55,6 @@ const { title, description, image = '/folio_duotono_bg2x.png' } = Astro.props
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
 <meta property='twitter:image' content={new URL(image, Astro.url)} />
+
+<!-- Fathom Analytics -->
+<Fathom site='PBVGUENI' />
