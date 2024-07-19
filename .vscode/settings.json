@@ -23,5 +23,10 @@
 	],
 	"colorize.colorized_variables": [
 		"CSS"
-	]
+	],
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#511D0E",
+		"titleBar.activeBackground": "#712913",
+		"titleBar.activeForeground": "#FEF8F7"
+	}
 }
