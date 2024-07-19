@@ -3,6 +3,8 @@ import { Image } from 'astro:assets'
 import selloPontevedra from '../assets/sello-pontevedra.webp'
 import { getI18N } from '@/i18n'
 
+import { Fathom } from 'astro-fathom'
+
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
 ---
@@ -22,6 +24,7 @@ const i18n = getI18N({ currentLocale })
     id='form'
     name='contact-form'
     action='https://api.web3forms.com/submit'
+    onsubmit="fathom.trackEvent('form submit');"
     method='POST'
     class='relative flex w-full flex-col justify-between gap-4 pb-10 pt-36 md:pt-24'
   >
@@ -162,6 +165,7 @@ const i18n = getI18N({ currentLocale })
           result.classList.add('text-red-500')
         } finally {
           targetForm.reset()
+
           setTimeout(() => {
             if (result) {
               result.style.display = 'none'
