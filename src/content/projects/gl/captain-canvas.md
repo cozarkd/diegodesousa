@@ -1,6 +1,6 @@
 ---
 title: 'Captain Canvas'
-description: 'Aplicativo de desktop para profissionais de impressão digital. Organiza automaticamente imagens em telas para otimizar espaço e material. Página de destino e aplicativo de desktop.'
+description: 'Aplicación de escritorio para profesionais da impresión dixital. Maqueta automaticamente imaxes en lenzos para aproveitar o espazo e material. Landing e aplicación de escritorio.'
 link: 'https://captaincanvas.app'
 cover: '../floralia.webp'
 tags:

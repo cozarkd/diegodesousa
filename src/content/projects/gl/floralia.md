@@ -1,6 +1,6 @@
 ---
 title: 'Floralia'
-description: 'Projeto pessoal de um aplicativo web que documenta informações sobre plantas de jardim e pomar. Em constante desenvolvimento e crescimento. Versão Beta.'
+description: 'Proxecto persoal dunha web app que documenta información sobre plantas de horta e xardín. En constante desenvolvemento e crecemento. Versión Beta.'
 link: 'https://floralia.app'
 cover: '../floralia.webp'
 tags:

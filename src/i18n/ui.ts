@@ -11,11 +11,11 @@ export const LANGUAGES: Record<string, { code: string; name: string }> = {
   es: {
     code: 'es',
     name: 'Español'
+  },
+  gl: {
+    code: 'gl',
+    name: 'Galego'
   }
-  //   gl: {
-  //     code: 'gl',
-  //     name: 'Galego'
-  //   }
 }
 
 export const defaultLang = 'es'
