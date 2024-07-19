@@ -11,7 +11,16 @@ import robotsConfig from './robots-txt.config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://diegodesousa.com',
-	integrations: [mdx(), sitemap(), robotsTxt(robotsConfig), tailwind()],
+	integrations: [mdx(), sitemap({
+		i18n: {
+			defaultLocale: 'es', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
+			locales: {
+				es: 'es-ES',
+				en: 'en-US', // The `defaultLocale` value must present in `locales` keys
+				pt: 'pt-PT',
+			},
+		},
+	}), robotsTxt(robotsConfig), tailwind()],
 	i18n: {
 		defaultLocale: "es",
 		locales: ["es", "en", "pt"]
