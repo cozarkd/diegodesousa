@@ -16,14 +16,15 @@ export default defineConfig({
 			defaultLocale: 'es', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
 			locales: {
 				es: 'es-ES',
-				en: 'en-US', // The `defaultLocale` value must present in `locales` keys
+				en: 'en-US',
 				pt: 'pt-PT',
+				gl: 'gl-ES',
 			},
 		},
 	}), robotsTxt(robotsConfig), tailwind()],
 	i18n: {
 		defaultLocale: "es",
-		locales: ["es", "en", "pt"]
+		locales: ["es", "en", "pt", "gl"],
 	},
 	server: {
 		port: 3000

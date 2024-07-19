@@ -1,0 +1,76 @@
+{
+	"SEO_TITLE_1": "Diego de Sousa | desenvolvedor frontend",
+	"SEO_TITLE_2": "",
+	"SEO_DESCRIPTION": "Desenvolvedor web que traballa con startups e proxectos creativos dende o cariño e a inmersión. Dende a conceptualización ata a experiencia de usuario; e máis alá.",
+	"HEADER": {
+		"LOGO": "Volver á páxina de inicio de Diego de Sousa",
+		"NAMECARD": {
+			"LABEL": "Nome",
+			"NAME": "Diego de Sousa"
+		},
+		"STATUSCARD": {
+			"LABEL": "Estado",
+			"STATUS": "Dispoñible para proxectos <em>freelance</em>"
+		},
+		"INDEXCARD": {
+			"LABEL": "Índice",
+			"NAV": {
+				"ABOUT": "Sobre min",
+				"PROJECTS": "Proxectos",
+				"CONTACT": "Contacto"
+			}
+		},
+		"MISCCARD": {
+			"LABEL": "Miscelánea",
+			"NAV": {
+				"LANG": "Idioma",
+				"THEME": {
+					"LABEL": "Tema",
+					"LIGHT": "Claro",
+					"DARK": "Escuro",
+					"SYSTEM": "Sistema",
+					"SWITCH": "Cambiar tema"
+				}
+			}
+		}
+	},
+	"HERO": {
+		"H1": "<span class='block'>Chámome Diego,</span> son un desenvolvedor <em>frontend</em> especializado en webs accesibles, interactivas e rápidas.",
+		"PORTRAIT": {
+			"ALT": "Foto de Diego de Sousa"
+		}
+	},
+	"PROJECTSSECTION": {
+		"H2": "Proxectos destacados",
+		"SOURCECODE": "Ver código fonte",
+		"LIVEDEMO": "Ver proxecto publicado"
+	},
+	"ABOUTSECTION": {
+		"H2": "Sobre min",
+		"CONTENT": "<p>Con 12 anos, o meu pai trouxo a casa un ordenador que xa non podía usar no seu traballo. Dixéronme que se o rompía quedaba sen el. Uns días despois, obviamente, estaba \"roto\". Consegín arranxalo e rompelo unha e outra vez. Aí xerminou a semente da miña relación co mundo dixital.</p><p><strong>Deseñador gráfico</strong> de formación, <strong>desenvolvedor</strong> de vocación. Creo que a miña maior fortaleza está xusto nesa intersección, entendendo a importancia do deseño e traducíndoo a unha experiencia de usuario óptima.</p><p>Nos últimos anos orienteime a <strong>proxectos accesibles, creativos e performantes</strong>.</p><p>Colaboro como freelance con clientes finais, estudos, axencias e empresas facendo <strong>webs creativas e aplicacións web</strong>; sen deixar <del>demasiado</del> de lado proxectos persoais.</p>"
+	},
+	"CONTACTSECTION": {
+		"TITLE": "Contacto",
+		"FORM": {
+			"GREETING": "Ola Diego, chámome",
+			"NAME_PLACEHOLDER": "Xoán Ninguén",
+			"EMAIL_LABEL": "O meu email é",
+			"EMAIL_PLACEHOLDER": "xoan.ninguen@gmail.com",
+			"HELP_LABEL": "Estou buscando axuda con",
+			"HELP_PLACEHOLDER": "deseño web, desenvolvemento do meu deseño, tenda online, etc.",
+			"BUDGET_LABEL": "O meu orzamento está entre",
+			"BUDGET_PLACEHOLDER": "1500-3000€",
+			"DEADLINE_LABEL": "Necesito telo listo en",
+			"DEADLINE_PLACEHOLDER": "seis semanas",
+			"SUBMIT_BUTTON": "Enviar",
+			"SUCCESS_MESSAGE": "Correo enviado con éxito!",
+			"ERROR_MESSAGE": "Algo saíu mal!",
+			"WAIT_MESSAGE": "Por favor, espera..."
+		}
+	},
+	"FOOTER": {
+		"COPY": {
+			"SEASONSCHANGE": "Unha curiosidade: como eu, esta web cambia segundo as estacións do ano e a hora do día. 🌱🌞🍂❄️"
+		}
+	}
+}

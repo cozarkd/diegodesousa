@@ -10,7 +10,7 @@ const route = getRouteFromUrl(Astro.url)
 const lang = getLangFromUrl(Astro.url)
 const translatePath = useTranslatedPath(lang)
 
-const currentLocaleData = LANGUAGES[lang]
+// const currentLocaleData = LANGUAGES[lang]
 const otherLocales = Object.values(LANGUAGES).filter(
   (locale) => locale.code !== lang
 )

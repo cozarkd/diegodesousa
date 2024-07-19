@@ -12,6 +12,10 @@ export const LANGUAGES: Record<string, { code: string; name: string }> = {
     code: 'es',
     name: 'Español'
   }
+  //   gl: {
+  //     code: 'gl',
+  //     name: 'Galego'
+  //   }
 }
 
 export const defaultLang = 'es'
@@ -44,6 +48,15 @@ export const ui = {
     'nav.legal': 'Avís Legal',
     'nav.privacidad': 'Privacitat',
     'nav.cookies': 'Cookies'
+  },
+  gl: {
+    'nav.inicio': 'Inicio',
+    'nav.vota': 'Vota',
+    'nav.info': 'Información',
+    'nav.archivo': 'Arquivo',
+    'nav.legal': 'Aviso Legal',
+    'nav.privacidad': 'Privacidade',
+    'nav.cookies': 'Cookies'
   }
 } as const
 
@@ -70,6 +83,14 @@ export const routes = {
     archivo: 'arxiu',
     'aviso-legal': 'avis-legal',
     privacidad: 'privacitat',
+    cookies: 'cookies'
+  },
+  gl: {
+    vota: 'vota',
+    info: 'información',
+    archivo: 'arquivo',
+    'aviso-legal': 'aviso-legal',
+    privacidad: 'privacidade',
     cookies: 'cookies'
   }
 }

@@ -3,11 +3,13 @@
 import portuguese from '@/i18n/pt.json'
 import english from '@/i18n/en.json'
 import spanish from '@/i18n/es.json'
+import galician from '@/i18n/gl.json'
 
 const LANG = {
   PORTUGUESE: 'pt',
   ENGLISH: 'en',
-  SPANISH: 'es'
+  SPANISH: 'es',
+  GALICIAN: 'gl'
 }
 
 export const getI18N = ({
@@ -17,5 +19,6 @@ export const getI18N = ({
 }) => {
   if (currentLocale === LANG.PORTUGUESE) return { ...spanish, ...portuguese }
   if (currentLocale === LANG.ENGLISH) return { ...spanish, ...english }
+  if (currentLocale === LANG.GALICIAN) return { ...spanish, ...galician }
   return spanish
 }
