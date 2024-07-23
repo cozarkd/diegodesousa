@@ -19,10 +19,8 @@ const seasonalStylesPlugin = plugin(
     const day = now.getDate()
 
     // Override month and day for testing
-    // const month = 7
-    // const day = 30
-    // console.log('month', month)
-    // console.log('day', day)
+    // const month = 4
+    // const day = 31
 
     let seasonalStyles: SeasonalStyles = {}
 
@@ -157,8 +155,8 @@ const seasonalStylesPlugin = plugin(
         ':root': {
           '--background': '35 70% 90%', // Beige pálido para el fondo
           '--foreground': '20 30% 20%', // Marrón oscuro para el texto
-          '--primary': '25 70% 50%', // Naranja para encabezados H2
-          '--secondary': '45 80% 50%', // Amarillo mostaza para encabezados H3
+          '--primary': '25 93% 45%', // Naranja para encabezados H2
+          '--secondary': '35 100% 38%', // Amarillo mostaza para encabezados H3
           '--accent': '10 90% 40%' // Rojo anaranjado para botones y enlaces
         },
         '.dark': {
@@ -166,7 +164,7 @@ const seasonalStylesPlugin = plugin(
           '--foreground': '35 70% 90%', // Beige pálido para el texto
           '--primary': '25 70% 70%', // Naranja claro para encabezados H2
           '--secondary': '45 80% 70%', // Amarillo mostaza claro para encabezados H3
-          '--accent': '10 90% 60%' // Rojo anaranjado claro para botones y enlaces
+          '--accent': '10 100% 66%' // Rojo anaranjado claro para botones y enlaces
         }
       }
     }
