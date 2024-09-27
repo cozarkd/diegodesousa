@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Obtener la fecha actual
-month=$(date +'%m')
-day=$(date +'%d')
+month=$(date +'%-m')  # Use %-m to remove leading zero
+day=$(date +'%-d')    # Use %-d to remove leading zero
 
 # Lógica condicional para diferentes estaciones y eventos
 if [[ ( "$month" -eq 12 && "$day" -ge 1 ) || ( "$month" -eq 1 && "$day" -le 6 ) ]]; then
