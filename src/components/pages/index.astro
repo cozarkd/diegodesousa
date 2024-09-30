@@ -8,6 +8,7 @@ import { Picture } from 'astro:assets'
 import SectionContainer from '@/components/SectionContainer.astro'
 import ContactForm from '@/components/ContactForm.astro'
 import ProjectsSection from '@/components/sections/ProjectsSection.astro'
+import CollaborationsSection from '@/components/sections/CollaborationsSection.astro'
 import About from '@/components/sections/About.astro'
 import Badge from '@/components/Badge.astro'
 import DiegoPortrait from '@/assets/diego_bw.webp'
@@ -84,6 +85,13 @@ import { ViewTransitions } from 'astro:transitions'
           class='min-h-dvh'
         >
           <ProjectsSection />
+        </SectionContainer>
+        <SectionContainer
+          id='collaborations'
+          data-section='collaborations'
+          class='py-4 md:py-8'
+        >
+          <CollaborationsSection />
         </SectionContainer>
         <SectionContainer id='about' data-section='about' class=''>
           <About />

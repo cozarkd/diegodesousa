@@ -27,7 +27,7 @@ export default defineConfig({
 		locales: ["es", "en", "pt", "gl"],
 	},
 	server: {
-		port: 3000
+		port: 4321
 	},
 	vite: {
 		css: {

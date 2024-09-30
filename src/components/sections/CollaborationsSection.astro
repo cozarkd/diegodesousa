@@ -1,0 +1,49 @@
+---
+import LinkButton from '@/components/LinkButton.astro'
+import { getI18N } from '@/i18n'
+import InfiniteMarquee from '@/components/InfiniteMarquee.astro'
+
+// Import SVG components
+import Avangrid from '@/components/collaborations/Avangrid.astro'
+import BdE from '@/components/collaborations/BdE.astro'
+import Iberdrola from '@/components/collaborations/Iberdrola.astro'
+import Magmacultura from '@/components/collaborations/Magmacultura.astro'
+import Foccus from '@/components/collaborations/Foccus.astro'
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+// Collaboration logos. Component + Alt (translated)
+const collaborations = [
+  {
+    component: Avangrid,
+    alt: 'Avangrid',
+    size: { width: 100, height: 50 }
+  },
+  {
+    component: BdE,
+    alt: 'Banco de España',
+    size: { width: 170, height: 85 }
+  },
+  {
+    component: Iberdrola,
+    alt: 'Iberdrola',
+    size: { width: 100, height: 50 }
+  },
+  {
+    component: Magmacultura,
+    alt: 'Magma Cultura',
+    size: { width: 200, height: 100 }
+  },
+  {
+    component: Foccus,
+    alt: 'Foccus',
+    size: { width: 110, height: 20 }
+  }
+]
+---
+
+<h2 class='text-3xl font-bold text-primary'>{i18n.COLLABORATIONSSECTION.H2}</h2>
+<div class='flex flex-col gap-y-16'>
+  <!-- Collaboration logos in a Infinite Marquee -->
+  <InfiniteMarquee logos={collaborations} />
+</div>

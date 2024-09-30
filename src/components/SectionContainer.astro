@@ -1,11 +1,12 @@
 ---
+import { twMerge } from 'tailwind-merge'
+
 const { class: className, id } = Astro.props
+
+const baseClasses =
+  'section container relative mx-auto flex w-full flex-col gap-y-8 py-16 md:max-w-2xl md:gap-y-8 md:py-24 lg:max-w-4xl'
 ---
 
-<section
-  id={id}
-  data-section={id}
-  class={`section ${className} relative w-full mx-auto container lg:max-w-4xl md:max-w-2xl py-16 md:py-24 flex flex-col gap-y-8 md:gap-y-8`}
->
+<section id={id} data-section={id} class={twMerge(baseClasses, className)}>
   <slot />
 </section>

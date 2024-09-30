@@ -84,7 +84,7 @@ importers:
         specifier: ^0.33.4
         version: 0.33.4
       tailwind-merge:
-        specifier: ^2.2.1
+        specifier: ^2.2.2
         version: 2.2.2
       tailwindcss:
         specifier: ^3.4.1
