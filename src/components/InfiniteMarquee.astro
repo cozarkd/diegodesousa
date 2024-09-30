@@ -44,7 +44,6 @@ const { logos } = Astro.props
     display: flex;
     position: relative;
     gap: 4rem;
-
     mask-image: linear-gradient(
       to right,
       transparent,
@@ -57,6 +56,12 @@ const { logos } = Astro.props
     user-select: none;
   }
 
+  @media screen and (max-width: 767px) {
+    .marquee {
+      gap: 2rem;
+    }
+  }
+
   .marquee-content {
     display: flex;
     flex-shrink: 0;
@@ -65,6 +70,12 @@ const { logos } = Astro.props
     gap: 4rem;
     animation: scroll 30s linear infinite;
     min-width: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    .marquee-content {
+      gap: 2rem;
+    }
   }
 
   .marquee-item {
@@ -90,6 +101,17 @@ const { logos } = Astro.props
     }
     to {
       transform: translateX(calc(-100% - 4rem));
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - 2rem));
+      }
     }
   }
 
