@@ -49,8 +49,8 @@ import { ViewTransitions } from 'astro:transitions'
         >
           <Picture
             src={DiegoPortrait}
-            widths={[256, 771, 1090, 1340, 1542]}
-            sizes='(max-width: 360px) 256px, (max-width: 720px) 771px, (max-width: 1090px) 1090px, (max-width: 1340px) 1340px, 1542px'
+            widths={[256, 512, 771]}
+            sizes='(min-width: 2900px) 771px, (min-width: 1040px) calc(26.03vw + 21px), (min-width: 780px) 22.08vw, 16.09vw'
             alt={i18n.HERO.PORTRAIT.ALT}
             class='max-h-[40vh] w-auto mix-blend-multiply dark:opacity-90 dark:mix-blend-normal md:max-h-[55dvh] lg:max-h-[70dvh]'
             loading='eager'
