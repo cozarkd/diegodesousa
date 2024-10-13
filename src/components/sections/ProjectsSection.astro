@@ -46,9 +46,16 @@ const filteredProjects = projects
           <div class='w-full md:w-1/2'>
             <div class='overflow-hidden rounded-lg shadow-lg'>
               {project.video ? (
-                // Si el proyecto tiene un video, lo muestra.
                 // eslint-disable-next-line astro/jsx-a11y/media-has-caption
-                <video controls>
+
+                // Implement lazy loading for videos
+                <video
+                  loop
+                  autoplay
+                  muted
+                  preload='none'
+                  poster={project.cover?.src}
+                >
                   <source src={project.video} type='video/mp4' />
                   Your browser does not support the video tag.
                 </video>
@@ -61,6 +68,7 @@ const filteredProjects = projects
                     widths={[408, 816, 1160]}
                     sizes='(min-width: 1040px) 408px, (min-width: 780px) 296px, calc(100vw - 48px)'
                     class='w-full object-contain object-top transition duration-500'
+                    loading='lazy'
                   />
                 )
               )}
