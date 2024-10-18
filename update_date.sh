@@ -33,11 +33,14 @@ echo "Última actualización: $(date) - Periodo: $period" > last_update.txt
 git config --global user.email "cozarkd@gmail.com"
 git config --global user.name "Diego de Sousa"
 
+# Obtener el nombre de la rama actual
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
 # Hacer commit y push si el periodo ha cambiado
 if [[ `git status --porcelain` ]]; then
   git add last_update.txt
   git commit -m "Actualización automática: $(date) - Periodo: $period"
-  git push origin main
+  git push origin $current_branch
 else
   echo "No hay cambios para hacer commit."
 fi
