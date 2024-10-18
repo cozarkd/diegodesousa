@@ -7,10 +7,12 @@ This repository contains the source code for Diego de Sousa's personal portfolio
 The website is built using Astro, a modern static site generator, along with several other technologies:
 
 - 🚀 Astro
-- ⚛️ React
+- 📘 TypeScript
 - 🎨 Tailwind CSS
 - 📝 MDX for content
 - 🌐 i18n for internationalization (Spanish, English, Portuguese, Galician)
+- 🧹 ESLint for code linting
+- 💅 Prettier for code formatting
 
 ## 🧞 Commands
 
