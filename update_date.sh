@@ -40,7 +40,7 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 if [[ `git status --porcelain` ]]; then
   git add last_update.txt
   git commit -m "Actualización automática: $(date) - Periodo: $period"
-  git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" $current_branch
+  git push origin $current_branch
 else
   echo "No hay cambios para hacer commit."
 fi
