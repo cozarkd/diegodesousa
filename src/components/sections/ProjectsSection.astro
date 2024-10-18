@@ -50,15 +50,26 @@ const filteredProjects = projects
 
                 // Implement lazy loading for videos
                 <video
+                  class='lozad'
                   loop
                   autoplay
                   muted
-                  preload='none'
-                  poster={project.cover?.src}
+                  data-poster={project.cover?.src}
                 >
-                  <source src={project.video} type='video/mp4' />
+                  <source data-src={project.video} type='video/webm' />
                   Your browser does not support the video tag.
                 </video>
+				<noscript>
+					<video
+					loop
+					autoplay
+                  muted
+                  poster={project.cover?.src}
+                >
+                  <source src={project.video} type='video/webm' />
+                  Your browser does not support the video tag.
+                </video>
+              </noscript>
               ) : (
                 // Si el proyecto tiene una imagen de portada, la muestra.
                 project.cover && (
@@ -116,3 +127,10 @@ const filteredProjects = projects
       ))
   }
 </div>
+
+<script>
+  import lozad from 'lozad'
+
+  const observer = lozad() // lazy loads elements with default selector as '.lozad'
+  observer.observe()
+</script>
