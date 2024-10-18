@@ -11,6 +11,7 @@ on:
     - cron: '0 0 20 3 *' # 20 de Marzo para Primavera
     - cron: '0 0 21 6 *' # 21 de Junio para Verano
     - cron: '0 0 23 9 *' # 23 de Septiembre para Otoño
+  workflow_dispatch: # This allows manual triggering of the workflow
 
 jobs:
   update:
@@ -19,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Run update script
         run: |
