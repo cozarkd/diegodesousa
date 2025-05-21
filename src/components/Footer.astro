@@ -1,13 +1,27 @@
 ---
 import { getI18N } from '@/i18n'
+import LinkedIn from '@/components/icons/LinkedIn.astro';
 
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class='relative bg-background px-4 py-8 text-center text-xs'>
-  <p>
+  <a
+    href="https://www.linkedin.com/in/diego-de-sousa"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn Profile"
+    class="mb-2 inline-block"
+  >
+    <LinkedIn class="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" />
+  </a>
+  <p class="mb-2">
     {i18n.FOOTER.COPY.SEASONSCHANGE}
+  </p>
+  <p>
+    &copy; {currentYear} Diego de Sousa. {i18n.FOOTER.COPYRIGHT}
   </p>
   {
     //   <p>

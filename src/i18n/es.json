@@ -73,7 +73,8 @@
 	},
 	"FOOTER": {
 		"COPY": {
-			"SEASONSCHANGE": "Una curiosidad: como yo, esta web cambia según las estaciones del año y la hora del día. 🌱🌞🍂❄️"
+			"SEASONSCHANGE": "Dato curioso: al igual que yo, esta web cambia según las estaciones y el momento del día. 🌱🌞🍂❄️",
+			"COPYRIGHT": "Todos los derechos reservados."
 		}
 	}
 }

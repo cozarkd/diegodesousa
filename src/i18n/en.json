@@ -73,7 +73,8 @@
 	},
 	"FOOTER": {
 		"COPY": {
-			"SEASONSCHANGE": "Fun fact: like me, this website changes with the seasons and time of day. 🌱🌞🍂❄️"
+			"SEASONSCHANGE": "Fun fact: like me, this website changes with the seasons and time of day. 🌱🌞🍂❄️",
+			"COPYRIGHT": "All rights reserved."
 		}
 	}
 }
