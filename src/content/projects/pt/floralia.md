@@ -1,13 +1,12 @@
 ---
 title: 'Floralia'
-description: 'Projeto pessoal de um aplicativo web que documenta informações sobre plantas de jardim e pomar. Em constante desenvolvimento e crescimento. Versão Beta.'
+description: 'Projeto pessoal de um aplicativo web que documenta informações sobre plantas de jardim e pomar. Em constante desenvolvimento e crescimento.'
 link: 'https://floralia.app'
 cover: '../floralia.webp'
+video: '../floralia.webm'
 tags:
-  - name: '11ty'
+  - name: 'Next.js'
     class: 'bg-black text-white'
-  - name: 'Tailwind CSS'
-    class: 'bg-[#003159] text-white'
 isDraft: false
 language: 'pt'
 ---

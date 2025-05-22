@@ -3,6 +3,7 @@ title: 'Unveiling Memories'
 description: 'Um grande desafio para <strong>Iberdrola</strong> e Avantgrid onde tivemos que transferir muito conteúdo histórico de várias publicações editoriais. Design web, branding e desenvolvimento.'
 link: 'https://unveilingmemories.com/'
 cover: '../unveiling-memories.webp'
+video: '../unveiling-memories.webm'
 tags:
   - name: '11ty'
     class: 'bg-black text-white'
