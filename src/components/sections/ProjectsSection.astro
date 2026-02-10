@@ -131,6 +131,8 @@ const filteredProjects = projects
 <script>
   import lozad from 'lozad'
 
-  const observer = lozad() // lazy loads elements with default selector as '.lozad'
-  observer.observe()
+  document.addEventListener('astro:page-load', () => {
+    const observer = lozad()
+    observer.observe()
+  })
 </script>
