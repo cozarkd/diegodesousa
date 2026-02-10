@@ -25,10 +25,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Hero headline in all 4 languages introduces Diego with new positioning and references both service offerings (webs de alto rendimiento + productos SaaS)
   3. About section in all 4 languages presents LinkedIn-aligned professional profile covering 10+ years experience, design background, developer vocation, two service lines, accessibility focus, and location
   4. Contact form help text in all 4 languages includes SaaS, applications, and dashboards alongside web development
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-(To be created during phase planning)
+- [ ] 01-01-PLAN.md — Update Spanish (source of truth) and English profile content
+- [ ] 01-02-PLAN.md — Localize Portuguese and Galician profile content + validate all 4 files
 
 ## Progress
 
@@ -37,8 +38,8 @@ Phase 1 is standalone.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Profile Content Update | 0/TBD | Not started | - |
+| 1. Profile Content Update | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-10*
-*Last updated: 2026-02-10*
+*Last updated: 2026-02-10 after phase planning*
