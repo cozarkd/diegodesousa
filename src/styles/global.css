@@ -102,8 +102,12 @@
 
 @layer base {
   :root {
-    /* --background: 83 100% 96%; */
-    /* --foreground: 0 0% 3.9%; */
+    /* Default theme: Winter (current season: February) */
+    --background: 210 100% 97%;
+    --foreground: 210 20% 20%;
+    --primary: 210 70% 50%;
+    --secondary: 0 0% 40%;
+    --accent: 0 84% 48%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -111,16 +115,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    /* --primary: 0 0% 9%; */
     --primary-foreground: 0 0% 98%;
-
-    /* --secondary: 0 0% 96.1%; */
     --secondary-foreground: 0 0% 9%;
 
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
 
-    /* --accent: 0 0% 96.1%; */
     --accent-foreground: 0 0% 9%;
 
     --destructive: 0 84.2% 60.2%;
@@ -134,8 +134,11 @@
   }
 
   .dark {
-    /* --background: 180 1% 18%; */
-    /* --foreground: 0 0% 98%; */
+    --background: 210 20% 20%;
+    --foreground: 210 100% 97%;
+    --primary: 210 70% 70%;
+    --secondary: 0 0% 80%;
+    --accent: 0 84% 70%;
 
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -143,16 +146,12 @@
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    /* --primary: 0 0% 98%; */
-    /* --primary-foreground: 0 0% 9%; */
-
-    /* --secondary: 0 0% 14.9%; */
+    --primary-foreground: 0 0% 9%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
 
-    /* --accent: 0 0% 14.9%; */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -161,6 +160,104 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+  }
+
+  /* Seasonal themes - override primary, secondary, accent, background, foreground */
+
+  /* Christmas Theme */
+  :root[data-season="christmas"] {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 20%;
+    --primary: 0 100% 50%;
+    --secondary: 30 100% 40%;
+    --accent: 120 100% 25%;
+  }
+  :root[data-season="christmas"].dark {
+    --background: 0 0% 20%;
+    --foreground: 0 0% 98%;
+    --primary: 0 100% 60%;
+    --secondary: 30 100% 60%;
+    --accent: 120 100% 40%;
+  }
+
+  /* Halloween Theme */
+  :root[data-season="halloween"] {
+    --background: 40 100% 95%;
+    --foreground: 240 50% 10%;
+    --primary: 25 90% 45%;
+    --secondary: 280 60% 50%;
+    --accent: 0 80% 49%;
+  }
+  :root[data-season="halloween"].dark {
+    --background: 240 50% 10%;
+    --foreground: 40 100% 95%;
+    --primary: 25 90% 60%;
+    --secondary: 280 60% 70%;
+    --accent: 0 80% 70%;
+  }
+
+  /* Winter Theme */
+  :root[data-season="winter"] {
+    --background: 210 100% 97%;
+    --foreground: 210 20% 20%;
+    --primary: 210 70% 50%;
+    --secondary: 0 0% 40%;
+    --accent: 0 84% 48%;
+  }
+  :root[data-season="winter"].dark {
+    --background: 210 20% 20%;
+    --foreground: 210 100% 97%;
+    --primary: 210 70% 70%;
+    --secondary: 0 0% 80%;
+    --accent: 0 84% 70%;
+  }
+
+  /* Spring Theme */
+  :root[data-season="spring"] {
+    --background: 150 100% 95%;
+    --foreground: 150 20% 20%;
+    --primary: 330 70% 50%;
+    --secondary: 45 100% 28%;
+    --accent: 330 80% 40%;
+  }
+  :root[data-season="spring"].dark {
+    --background: 150 20% 20%;
+    --foreground: 150 100% 95%;
+    --primary: 330 70% 70%;
+    --secondary: 60 100% 70%;
+    --accent: 330 90% 80%;
+  }
+
+  /* Summer Theme */
+  :root[data-season="summer"] {
+    --background: 45 100% 95%;
+    --foreground: 210 15% 25%;
+    --primary: 20 100% 50%;
+    --secondary: 10 90% 60%;
+    --accent: 4 90% 46%;
+  }
+  :root[data-season="summer"].dark {
+    --background: 210 15% 25%;
+    --foreground: 45 100% 95%;
+    --primary: 20 100% 70%;
+    --secondary: 10 90% 80%;
+    --accent: 4 100% 76%;
+  }
+
+  /* Autumn Theme */
+  :root[data-season="autumn"] {
+    --background: 35 70% 90%;
+    --foreground: 20 30% 20%;
+    --primary: 25 93% 45%;
+    --secondary: 35 100% 38%;
+    --accent: 10 90% 40%;
+  }
+  :root[data-season="autumn"].dark {
+    --background: 20 30% 20%;
+    --foreground: 35 70% 90%;
+    --primary: 25 70% 70%;
+    --secondary: 45 80% 70%;
+    --accent: 10 100% 66%;
   }
 }
 

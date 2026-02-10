@@ -19,6 +19,44 @@ const { title, description, image = '/folio_duotono_bg2x.png' } = Astro.props
 import { Fathom } from 'astro-fathom'
 ---
 
+<!-- Seasonal Theme Script - runs immediately to prevent FOUC -->
+<script is:inline>
+  (function() {
+    const now = new Date();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+
+    let season = 'winter'; // default
+
+    // Christmas
+    if ((month === 12 && day >= 1) || (month === 1 && day <= 6)) {
+      season = 'christmas';
+    }
+    // Halloween
+    else if (month === 10 && day === 31) {
+      season = 'halloween';
+    }
+    // Winter
+    else if ((month === 12 && day >= 21) || month === 1 || month === 2 || (month === 3 && day < 20)) {
+      season = 'winter';
+    }
+    // Spring
+    else if ((month === 3 && day >= 20) || month === 4 || month === 5 || (month === 6 && day < 21)) {
+      season = 'spring';
+    }
+    // Summer
+    else if ((month === 6 && day >= 21) || month === 7 || month === 8 || (month === 9 && day < 23)) {
+      season = 'summer';
+    }
+    // Autumn
+    else if ((month === 9 && day >= 23) || month === 10 || month === 11 || (month === 12 && day < 21)) {
+      season = 'autumn';
+    }
+
+    document.documentElement.setAttribute('data-season', season);
+  })();
+</script>
+
 <!-- Global Metadata -->
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width,initial-scale=1' />
