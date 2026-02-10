@@ -1,4 +1,4 @@
-# Portfolio Website — Profile Update
+# Portfolio Website — Diego de Sousa
 
 ## What This Is
 
@@ -23,13 +23,14 @@ The website must accurately represent Diego's current professional profile — F
 - ✓ Hero section with portrait image — existing
 - ✓ About section — existing
 - ✓ Language switcher — existing
+- ✓ SEO title and description with "Full-Stack Developer & Product Designer" positioning (all 4 languages) — v1.0
+- ✓ Hero headline with new positioning and dual service offering (all 4 languages) — v1.0
+- ✓ About section with design-first narrative, 10+ years experience, two service lines (all 4 languages) — v1.0
+- ✓ Contact form help placeholder includes SaaS, applications, dashboards (all 4 languages) — v1.0
 
 ### Active
 
-- [ ] Update SEO title and description to reflect "Full-Stack Developer & Product Designer" role (all 4 languages)
-- [ ] Update hero headline from "desarrollador frontend" to "Desarrollador Full-Stack & Diseñador de Producto" positioning (all 4 languages)
-- [ ] Rewrite About section based on LinkedIn summary — professional tone, covering full-stack + product design dual focus, 10+ years experience, two service lines (all 4 languages)
-- [ ] Update contact form help placeholder to include SaaS, apps, dashboards alongside web development (all 4 languages)
+(None — no active milestone)
 
 ### Out of Scope
 
@@ -49,12 +50,7 @@ The site is built with Astro 4.5.4 and uses a JSON-based i18n system. All user-f
 
 The About section content is stored as HTML strings within these JSON files. The hero headline also uses HTML (with `<span>` and `<em>` tags).
 
-Diego's new LinkedIn profile emphasizes:
-- "Full-Stack Developer & Product Designer"
-- Two service lines: high-performance websites (Astro/Next.js) AND SaaS products (Next.js + Supabase + Stripe + OpenAI)
-- 10+ years designing and developing digital products
-- Design systems, accessibility (WCAG AA+), documentation
-- Based in Galicia, freelance, open to remote collaborations
+Shipped v1.0 with profile content update across all 4 languages. All i18n files have 29 consistent key paths. Site builds successfully with 4 pages (/, /en/, /pt/, /gl/).
 
 ## Constraints
 
@@ -67,10 +63,12 @@ Diego's new LinkedIn profile emphasizes:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Spanish positioning "Desarrollador Full-Stack & Diseñador de Producto" | User wants Spanish-first positioning matching default site language | — Pending |
-| Rewrite About from LinkedIn, not keep storytelling | User prefers professional tone based on LinkedIn summary over personal anecdotes | — Pending |
-| Update all 4 languages at once | Consistency across all locales | — Pending |
-| Content update only, no structural changes | User explicitly chose minimal scope | — Pending |
+| Spanish positioning "Desarrollador Full-Stack & Diseñador de Producto" | User wants Spanish-first positioning matching default site language | ✓ Good — clear, professional |
+| Rewrite About from LinkedIn, not keep storytelling | User prefers professional tone based on LinkedIn summary over personal anecdotes | ✓ Good — design-first narrative reads naturally |
+| Update all 4 languages at once | Consistency across all locales | ✓ Good — all 4 files consistent |
+| Content update only, no structural changes | User explicitly chose minimal scope | ✓ Good — clean, focused update |
+| European Portuguese "programador" not "desenvolvedor" | pt-PT convention for target market | ✓ Good — appropriate for European audience |
+| Professional Galician with normativa orthography | Treat Galician as fully professional language | ✓ Good — carries regional authenticity |
 
 ---
-*Last updated: 2026-02-10 after initialization*
+*Last updated: 2026-02-10 after v1.0 milestone*
