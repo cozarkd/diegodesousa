@@ -107,11 +107,11 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Migrate Tailwind CSS 4 with seasonal theming and companion packages
-- [ ] 04-02-PLAN.md — Migrate ESLint 10 with flat config and updated plugins
-- [ ] 04-03-PLAN.md — Full build verification and visual regression check
+- [x] 04-01-PLAN.md — Migrate Tailwind CSS 4 with seasonal theming and companion packages
+- [x] 04-02-PLAN.md — Migrate ESLint 10 with flat config and updated plugins
+- [x] 04-03-PLAN.md — Full build verification and visual regression check
 
-**Status:** Planned | **Effort:** 6-9 hours
+**Status:** ✓ Complete | **Completed:** 2026-02-10
 
 ---
 
@@ -145,10 +145,10 @@ Plans:
 | 1. Profile Content Update | v1.0 | ✓ Complete | — | 2026-02-10 |
 | 2. Zod 4 Migration | v2.0 | ✓ Complete | ZOD-01, ZOD-02 | 2/2 |
 | 3. Astro 5 Upgrade | v2.0 | ✓ Complete | ASTRO-01, ASTRO-02, ASTRO-03, ASTRO-04 | 4/4 |
-| 4. Styling & Linting Modernization | v2.0 | Planned | TW-01–05, LINT-01–03 | 0/8 |
+| 4. Styling & Linting Modernization | v2.0 | ✓ Complete | TW-01–05, LINT-01–03 | 8/8 |
 | 5. React 19 & PostCSS Upgrade | v2.0 | Pending | REACT-01, REACT-02, REACT-03, PCSS-01 | 0/4 |
 
-**v2.0 Progress:** 6/18 requirements completed (33%)
+**v2.0 Progress:** 14/18 requirements completed (78%)
 
 ## Critical Dependencies
 
@@ -161,10 +161,10 @@ Phase 4 and Phase 5 are independent of each other but both depend on Phase 3.
 
 ## Next Steps
 
-1. Execute Phase 4: Styling & Linting Modernization (`/gsd:execute-phase 4`)
-2. Plan Phase 5: React 19 & PostCSS Upgrade (`/gsd:plan-phase 5`)
-3. Phases 4 and 5 are independent — can be planned/executed in any order
+1. Plan Phase 5: React 19 & PostCSS Upgrade (`/gsd:plan-phase 5`)
+2. Execute Phase 5 (`/gsd:execute-phase 5`)
+3. Complete v2.0 milestone (`/gsd:complete-milestone`)
 
 ---
 *Roadmap created: 2026-02-10*
-*Last updated: 2026-02-10 after Phase 4 planning complete*
+*Last updated: 2026-02-10 after Phase 4 execution complete*
