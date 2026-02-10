@@ -1,8 +1,6 @@
 module.exports = {
 	plugins: [
-		// add PostCSS preset-env
-		require('postcss-preset-env', {
-			// Options
+		require('postcss-preset-env')({
 			stage: 2,
 		})
 	]
