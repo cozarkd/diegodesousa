@@ -1,7 +1,7 @@
 {
-	"SEO_TITLE_1": "Diego de Sousa | Desenvolvedor Frontend",
+	"SEO_TITLE_1": "Diego de Sousa | Programador Full-Stack & Designer de Produto",
 	"SEO_TITLE_2": "",
-	"SEO_DESCRIPTION": "Desenvolvedor web que trabalha com startups e projetos criativos com carinho e imersão. Desde a conceptualização até à experiência do utilizador; e além.",
+	"SEO_DESCRIPTION": "Programador full-stack e designer de produto na Galiza, Espanha. Crio websites de alto desempenho e aplicações SaaS com mais de 10 anos de experiência.",
 	"HEADER": {
 		"LOGO": "Voltar à página inicial de Diego de Sousa",
 		"NAMECARD": {
@@ -35,7 +35,7 @@
 		}
 	},
 	"HERO": {
-		"H1": "<span class='block'>Chamo-me Diego,</span> sou um desenvolvedor <em>frontend</em> especializado em websites acessíveis, interativos e rápidos.",
+		"H1": "<span class='block'>Chamo-me Diego,</span> desenho e construo <em>websites de alto desempenho</em> e <em>produtos SaaS</em> que combinam design cuidado com desenvolvimento técnico.",
 		"PORTRAIT": {
 			"ALT": "Foto de Diego de Sousa"
 		}
@@ -50,7 +50,7 @@
 	},
 	"ABOUTSECTION": {
 		"H2": "Sobre mim",
-		"CONTENT": "<p>Aos 12 anos, o meu pai trouxe para casa um computador que já não podia usar no trabalho. Disseram-me que se o estragasse, ficaria sem ele. Uns dias depois, claro, estava \"estragado\". Consegui consertá-lo e estragá-lo repetidamente. Foi aí que germinou a semente da minha relação com o mundo digital.</p><p><strong>Designer gráfico</strong> de formação, <strong>desenvolvedor</strong> por vocação. Acho que a minha maior força está precisamente nessa interseção, entendendo a importância do design e traduzindo-o numa experiência de utilizador ótima.</p><p>Nos últimos anos, tenho-me orientado para <strong>projetos acessíveis, criativos e de alto desempenho</strong>.</p><p>Colaboro como freelancer com clientes finais, estúdios, agências e empresas, criando <strong>sites criativos e aplicações web</strong>; sem deixar de lado <del>demasiado</del> os meus projetos pessoais.</p><p>Podemos entender-nos em <a href='/'><strong>espanhol</strong> 🇪🇸</a>, <a href='/gl/'><strong>galego</strong> 🌳</a>, <a href='/en/'><strong>inglês</strong></a> 🇬🇧 e <a href='/pt/'><strong>português</strong> 🇵🇹</a>.</p><p>Atualmente vivendo em Pontevedra, Galiza, Espanha.</p>"
+		"CONTENT": "<p>Formei-me como designer gráfico, estudando a relação entre forma e função, aprendendo a comunicar ideias através do design. Com o tempo, descobri que o design que imaginava precisava de código para ganhar vida. Essa curiosidade levou-me ao desenvolvimento web, e o que começou como uma ferramenta para materializar os meus designs tornou-se numa segunda vocação.</p><p>Hoje trabalho como <strong>programador full-stack e designer de produto</strong>, combinando mais de 10 anos de experiência em ambas as disciplinas. Compreendo o design de dentro e traduzo-o em código limpo e eficiente. Essa interseção é a minha maior força: criar produtos que não só têm bom aspeto, mas funcionam excecionalmente bem.</p><p>Especializo-me em duas áreas: <strong>websites de alto desempenho</strong> que combinam design visual cuidado com velocidade técnica, e <strong>produtos SaaS</strong> como dashboards, aplicações e ferramentas internas que facilitam o trabalho das pessoas. Utilizo tecnologias web modernas e presto especial atenção à acessibilidade, garantindo que o que construo seja utilizável por todos.</p><p>Trabalho de forma independente na Galiza, Espanha, colaborando com clientes de diferentes países. Podemos comunicar em <a href='/'><strong>espanhol</strong> 🇪🇸</a>, <a href='/gl/'><strong>galego</strong> 🌳</a>, <a href='/en/'><strong>inglês</strong> 🇬🇧</a> e <a href='/pt/'><strong>português</strong> 🇵🇹</a>.</p><p>Valorizo a qualidade e o cuidado com os detalhes. Acredito em fazer as coisas bem: código pensado, design intencional, produtos que duram. Se procura alguém que compreenda tanto a parte visual como a técnica do seu projeto, vamos conversar.</p>"
 	},
 	"CONTACTSECTION": {
 		"TITLE": "Contacto",
@@ -60,7 +60,7 @@
 			"EMAIL_LABEL": "O meu email é",
 			"EMAIL_PLACEHOLDER": "joao.ninguem@gmail.com",
 			"HELP_LABEL": "Preciso de ajuda com",
-			"HELP_PLACEHOLDER": "design de websites, desenvolvimento do meu design, loja online, etc.",
+			"HELP_PLACEHOLDER": "design web, desenvolvimento web, aplicações SaaS, dashboards, lojas online, etc.",
 			"BUDGET_LABEL": "O meu orçamento está entre",
 			"BUDGET_PLACEHOLDER": "1500-3000€",
 			"DEADLINE_LABEL": "Preciso que esteja pronto em",
