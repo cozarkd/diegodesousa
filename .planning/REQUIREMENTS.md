@@ -40,17 +40,17 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SEO-01 | — | Pending |
-| SEO-02 | — | Pending |
-| HERO-01 | — | Pending |
-| ABOUT-01 | — | Pending |
-| CONT-01 | — | Pending |
+| SEO-01 | Phase 1 | Pending |
+| SEO-02 | Phase 1 | Pending |
+| HERO-01 | Phase 1 | Pending |
+| ABOUT-01 | Phase 1 | Pending |
+| CONT-01 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 5 total
-- Mapped to phases: 0
-- Unmapped: 5
+- Mapped to phases: 5
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*
