@@ -134,7 +134,13 @@ Plans:
 4. Type checking passes for all React components
 5. Modern CSS features process correctly through PostCSS
 
-**Status:** Pending | **Effort:** 3-4 hours
+**Plans:** 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Upgrade React 19, types, Radix UI verification, and Astro integration
+- [ ] 05-02-PLAN.md — Upgrade postcss-preset-env to v11 and fix config
+
+**Status:** Planned | **Effort:** 3-4 hours
 
 ---
 
@@ -146,7 +152,7 @@ Plans:
 | 2. Zod 4 Migration | v2.0 | ✓ Complete | ZOD-01, ZOD-02 | 2/2 |
 | 3. Astro 5 Upgrade | v2.0 | ✓ Complete | ASTRO-01, ASTRO-02, ASTRO-03, ASTRO-04 | 4/4 |
 | 4. Styling & Linting Modernization | v2.0 | ✓ Complete | TW-01–05, LINT-01–03 | 8/8 |
-| 5. React 19 & PostCSS Upgrade | v2.0 | Pending | REACT-01, REACT-02, REACT-03, PCSS-01 | 0/4 |
+| 5. React 19 & PostCSS Upgrade | v2.0 | Planned | REACT-01, REACT-02, REACT-03, PCSS-01 | 0/4 |
 
 **v2.0 Progress:** 14/18 requirements completed (78%)
 
@@ -161,10 +167,9 @@ Phase 4 and Phase 5 are independent of each other but both depend on Phase 3.
 
 ## Next Steps
 
-1. Plan Phase 5: React 19 & PostCSS Upgrade (`/gsd:plan-phase 5`)
-2. Execute Phase 5 (`/gsd:execute-phase 5`)
-3. Complete v2.0 milestone (`/gsd:complete-milestone`)
+1. Execute Phase 5: React 19 & PostCSS Upgrade (`/gsd:execute-phase 5`)
+2. Complete v2.0 milestone (`/gsd:complete-milestone`)
 
 ---
 *Roadmap created: 2026-02-10*
-*Last updated: 2026-02-10 after Phase 4 execution complete*
+*Last updated: 2026-02-10 after Phase 5 planning complete*
