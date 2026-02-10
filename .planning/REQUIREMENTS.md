@@ -64,30 +64,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ZOD-01 | — | Pending |
-| ZOD-02 | — | Pending |
-| ASTRO-01 | — | Pending |
-| ASTRO-02 | — | Pending |
-| ASTRO-03 | — | Pending |
-| ASTRO-04 | — | Pending |
-| TW-01 | — | Pending |
-| TW-02 | — | Pending |
-| TW-03 | — | Pending |
-| TW-04 | — | Pending |
-| TW-05 | — | Pending |
-| LINT-01 | — | Pending |
-| LINT-02 | — | Pending |
-| LINT-03 | — | Pending |
-| REACT-01 | — | Pending |
-| REACT-02 | — | Pending |
-| REACT-03 | — | Pending |
-| PCSS-01 | — | Pending |
+| ZOD-01 | Phase 2 | Pending |
+| ZOD-02 | Phase 2 | Pending |
+| ASTRO-01 | Phase 3 | Pending |
+| ASTRO-02 | Phase 3 | Pending |
+| ASTRO-03 | Phase 3 | Pending |
+| ASTRO-04 | Phase 3 | Pending |
+| TW-01 | Phase 4 | Pending |
+| TW-02 | Phase 4 | Pending |
+| TW-03 | Phase 4 | Pending |
+| TW-04 | Phase 4 | Pending |
+| TW-05 | Phase 4 | Pending |
+| LINT-01 | Phase 4 | Pending |
+| LINT-02 | Phase 4 | Pending |
+| LINT-03 | Phase 4 | Pending |
+| REACT-01 | Phase 5 | Pending |
+| REACT-02 | Phase 5 | Pending |
+| REACT-03 | Phase 5 | Pending |
+| PCSS-01 | Phase 5 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 (awaiting roadmap)
+- Mapped to phases: 18/18 (100%)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*
