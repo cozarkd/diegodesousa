@@ -70,7 +70,13 @@ Plans:
 4. Dev server hot module reload works correctly
 5. Contact form submits and redirects correctly
 
-**Status:** Pending | **Effort:** 4-6 hours
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Upgrade Astro and integrations to v5, migrate Content Layer API
+- [ ] 03-02-PLAN.md — Verify build, locale rendering, and visual regression
+
+**Status:** Planned | **Effort:** 4-6 hours
 
 ---
 
@@ -148,8 +154,8 @@ Phase 4 and Phase 5 are independent of each other but both depend on Phase 3.
 
 ## Next Steps
 
-1. Plan Phase 3: Astro 5 Upgrade
-2. Run `/gsd:plan-phase 3` to create detailed execution plan
+1. Execute Phase 3: Astro 5 Upgrade (`/gsd:execute-phase 03-astro-5-upgrade`)
+2. Plan Phase 4: Styling & Linting Modernization
 3. Follow critical dependency path through remaining phases
 
 ---
