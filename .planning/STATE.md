@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** The website must accurately represent Diego's current professional profile — Full-Stack Developer & Product Designer — so potential clients and collaborators immediately understand what he does and how to work with him.
-**Current focus:** v1.0 milestone complete — planning next milestone
+**Current focus:** v2.0 Full Stack Migration — Astro 5, React 19, Tailwind 4, ESLint 10
 
 ## Current Position
 
-Phase: 1 of 1 (Profile Content Update)
-Plan: 2 of 2 in current phase
-Status: Milestone v1.0 complete
-Last activity: 2026-02-10 - Completed quick task 1: Safely update project dependencies
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-02-10 — Milestone v2.0 started
 
-Progress: [██████████] 100%
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
@@ -54,7 +54,7 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: v1.0 milestone complete
+Stopped at: v2.0 milestone — defining requirements
 Resume file: None
 
 ---

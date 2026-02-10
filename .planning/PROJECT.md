@@ -30,15 +30,30 @@ The website must accurately represent Diego's current professional profile — F
 
 ### Active
 
-(None — no active milestone)
+- [ ] Migrate Astro 4 → 5 with all Astro integrations (`@astrojs/mdx`, `@astrojs/react`, `@astrojs/tailwind`, `@astrojs/sitemap`)
+- [ ] Migrate React 18 → 19 with type definitions
+- [ ] Migrate Tailwind CSS 3 → 4 with ecosystem (`tailwind-merge`, `tailwind-scrollbar`)
+- [ ] Migrate ESLint 8 → 10 with flat config and all plugins
+- [ ] Migrate `postcss-preset-env` 9 → 11
+- [ ] Migrate `zod` 3 → 4
 
 ### Out of Scope
 
-- Structural/layout changes — content update only
-- New sections or pages — keeping existing structure
-- Design/visual changes — no CSS or component modifications
-- Project content updates — only updating profile-related text
-- New features or functionality — purely textual changes
+- New features or functionality — migration only, no new capabilities
+- Visual/design changes — site must look identical after migration
+- Content changes — all i18n content preserved as-is
+- New pages or sections — structural parity with pre-migration site
+
+## Current Milestone: v2.0 Full Stack Migration
+
+**Goal:** Migrate all major dependencies to their latest versions — Astro 5, React 19, Tailwind CSS 4, ESLint 10 — while preserving identical site functionality and appearance.
+
+**Target features:**
+- Astro 5 migration (Content Layer API, new integration versions)
+- React 19 migration (new JSX transform, updated hooks)
+- Tailwind CSS 4 migration (new engine, CSS-first config)
+- ESLint 10 flat config migration (new plugin ecosystem)
+- PostCSS and Zod major upgrades
 
 ## Context
 
@@ -71,4 +86,4 @@ Shipped v1.0 with profile content update across all 4 languages. All i18n files 
 | Professional Galician with normativa orthography | Treat Galician as fully professional language | ✓ Good — carries regional authenticity |
 
 ---
-*Last updated: 2026-02-10 after v1.0 milestone*
+*Last updated: 2026-02-10 after v2.0 milestone start*
