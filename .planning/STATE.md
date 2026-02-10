@@ -12,19 +12,19 @@
 
 ## Current Position
 
-**Phase:** Phase 3 - Astro 5 Upgrade
-**Plan:** 03-02 (Complete)
-**Status:** Complete
+**Phase:** Phase 4 - Styling & Linting Modernization
+**Plan:** 04-02 (Complete)
+**Status:** In Progress
 
 **Progress:**
 ```
-[████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 8/18 requirements (44%)
+[█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 9/18 requirements (50%)
 ```
 
 **Phases:**
 - Phase 2: Zod 4 Migration (2/2) — Complete
 - Phase 3: Astro 5 Upgrade (4/4) — Complete (2/2 plans complete)
-- Phase 4: Styling & Linting Modernization (0/8) — Pending
+- Phase 4: Styling & Linting Modernization (1/8) — In Progress (1/2 plans complete)
 - Phase 5: React 19 & PostCSS Upgrade (0/4) — Pending
 
 ## Performance Metrics
@@ -59,6 +59,12 @@
 - Files modified: 1 (src/components/sections/ProjectsSection.astro)
 - Commits: 1 (8996132)
 
+**Phase 4-02 (Completed 2026-02-10):**
+- Duration: 5 min 20s (320 seconds)
+- Tasks completed: 1
+- Files modified: 5 (eslint.config.js created, .eslintrc.cjs deleted, .eslintignore deleted, package.json, pnpm-lock.yaml)
+- Commits: 1 (feee2bf)
+
 ## Accumulated Context
 
 ### Critical Decisions
@@ -92,6 +98,11 @@ Migrated from legacy type-based content collections to Content Layer API with gl
 Fixed lazy-loading bug where project videos stopped loading after locale switching via View Transitions. Wrapped Lozad observer initialization in `astro:page-load` event listener to re-observe after each SPA navigation.
 
 **Rationale:** View Transitions create client-side navigation without full page reload. Lazy-loading observers must re-run on each navigation to observe new DOM elements. Pattern established for all future lazy-loading integrations.
+
+**ESLint 10 Native Flat Config Adoption (2026-02-10):**
+Migrated from ESLint 8 with legacy .eslintrc.cjs to ESLint 10 with native flat config (eslint.config.js). Upgraded all plugins to flat-config-compatible versions (@typescript-eslint v8, eslint-plugin-astro v1). Wrote native ESM config instead of using FlatCompat backwards-compatibility layer.
+
+**Rationale:** ESLint 10 removes legacy eslintrc support entirely. Native flat config provides cleaner ESM-native configuration. Plugin peer dependency warnings with ESLint 10 are transitional - all plugins work correctly. No type-aware linting avoids performance penalties and config file scope issues.
 
 ### Pending Todos
 
@@ -158,10 +169,10 @@ Fixed lazy-loading bug where project videos stopped loading after locale switchi
 ## Session Continuity
 
 **What Just Happened:**
-Completed Phase 3: Astro 5 Upgrade (both plans 03-01 and 03-02). Upgraded Astro from 4.5.12 to 5.17.1 with Vite 6, migrated to Content Layer API, and verified end-to-end for all 4 locales. Fixed Lozad lazy-loading bug on View Transitions navigation. Production build succeeds, type checking passes, dev server works, content collections return correct data. User visually verified all locales and approved.
+Completed Phase 4 Plan 02: ESLint 10 Flat Config Migration. Upgraded ESLint from 8.57.0 to 10.0.0 with mandatory flat config. Upgraded all plugins to flat-config-compatible versions (@typescript-eslint v8, eslint-plugin-astro v1). Created native ESLint flat config without backwards-compatibility shims. Removed legacy .eslintrc.cjs, .eslintignore, and eslint-config-standard. Verified linting works correctly for all file types (.ts, .astro, .js).
 
 **What's Next:**
-Phase 3 complete (2/2 plans complete, 8/18 requirements done). Next: Execute Phase 4: Styling & Linting Modernization (Tailwind 4 + ESLint 10).
+Phase 4 Plan 02 complete (1/2 plans complete, 9/18 requirements done). Next: Execute Phase 4 Plan 01 (Tailwind CSS 4 migration) or Plan 03 (verification of both migrations).
 
 **Open Questions:**
 - ~~Should we fully migrate to Content Layer API in Phase 3, or use legacy flag temporarily?~~ — Resolved: Full migration complete, working perfectly
