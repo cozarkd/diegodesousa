@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
@@ -10,7 +11,7 @@ import robotsConfig from './robots-txt.config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://diegodesousa.com',
-	integrations: [mdx(), sitemap({
+	integrations: [react(), mdx(), sitemap({
 		i18n: {
 			defaultLocale: 'es', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
 			locales: {
