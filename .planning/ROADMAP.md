@@ -73,10 +73,10 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Upgrade Astro and integrations to v5, migrate Content Layer API
-- [ ] 03-02-PLAN.md — Verify build, locale rendering, and visual regression
+- [x] 03-01-PLAN.md — Upgrade Astro and integrations to v5, migrate Content Layer API
+- [x] 03-02-PLAN.md — Verify build, locale rendering, and visual regression
 
-**Status:** Planned | **Effort:** 4-6 hours
+**Status:** ✓ Complete | **Completed:** 2026-02-10
 
 ---
 
@@ -137,11 +137,11 @@ Plans:
 |-------|-----------|--------|--------------|-----------|
 | 1. Profile Content Update | v1.0 | ✓ Complete | — | 2026-02-10 |
 | 2. Zod 4 Migration | v2.0 | ✓ Complete | ZOD-01, ZOD-02 | 2/2 |
-| 3. Astro 5 Upgrade | v2.0 | Pending | ASTRO-01, ASTRO-02, ASTRO-03, ASTRO-04 | 0/4 |
+| 3. Astro 5 Upgrade | v2.0 | ✓ Complete | ASTRO-01, ASTRO-02, ASTRO-03, ASTRO-04 | 4/4 |
 | 4. Styling & Linting Modernization | v2.0 | Pending | TW-01–05, LINT-01–03 | 0/8 |
 | 5. React 19 & PostCSS Upgrade | v2.0 | Pending | REACT-01, REACT-02, REACT-03, PCSS-01 | 0/4 |
 
-**v2.0 Progress:** 2/18 requirements completed (11%)
+**v2.0 Progress:** 6/18 requirements completed (33%)
 
 ## Critical Dependencies
 
@@ -154,10 +154,10 @@ Phase 4 and Phase 5 are independent of each other but both depend on Phase 3.
 
 ## Next Steps
 
-1. Execute Phase 3: Astro 5 Upgrade (`/gsd:execute-phase 03-astro-5-upgrade`)
-2. Plan Phase 4: Styling & Linting Modernization
-3. Follow critical dependency path through remaining phases
+1. Plan Phase 4: Styling & Linting Modernization (`/gsd:plan-phase 4`)
+2. Plan Phase 5: React 19 & PostCSS Upgrade (`/gsd:plan-phase 5`)
+3. Phases 4 and 5 are independent — can be planned/executed in any order
 
 ---
 *Roadmap created: 2026-02-10*
-*Last updated: 2026-02-10 after Phase 2 execution complete*
+*Last updated: 2026-02-10 after Phase 3 execution complete*
