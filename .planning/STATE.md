@@ -13,7 +13,7 @@
 ## Current Position
 
 **Phase:** Phase 4 - Styling & Linting Modernization
-**Plan:** 04-02 (Complete)
+**Plan:** 04-01 (Complete)
 **Status:** In Progress
 
 **Progress:**
@@ -59,11 +59,11 @@
 - Files modified: 1 (src/components/sections/ProjectsSection.astro)
 - Commits: 1 (8996132)
 
-**Phase 4-02 (Completed 2026-02-10):**
-- Duration: 5 min 20s (320 seconds)
-- Tasks completed: 1
-- Files modified: 5 (eslint.config.js created, .eslintrc.cjs deleted, .eslintignore deleted, package.json, pnpm-lock.yaml)
-- Commits: 1 (feee2bf)
+**Phase 4-01 (Completed 2026-02-10):**
+- Duration: 9 min 34s (574 seconds)
+- Tasks completed: 2
+- Files modified: 8 (src/styles/global.css, astro.config.mjs, src/components/BaseHead.astro, package.json, pnpm-lock.yaml, postcss.config.cjs, prettier.config.cjs, src/scripts/seasonal-theme.ts created)
+- Commits: 2 (a89b6d3, 9cc1e6d)
 
 ## Accumulated Context
 
@@ -99,10 +99,15 @@ Fixed lazy-loading bug where project videos stopped loading after locale switchi
 
 **Rationale:** View Transitions create client-side navigation without full page reload. Lazy-loading observers must re-run on each navigation to observe new DOM elements. Pattern established for all future lazy-loading integrations.
 
-**ESLint 10 Native Flat Config Adoption (2026-02-10):**
-Migrated from ESLint 8 with legacy .eslintrc.cjs to ESLint 10 with native flat config (eslint.config.js). Upgraded all plugins to flat-config-compatible versions (@typescript-eslint v8, eslint-plugin-astro v1). Wrote native ESM config instead of using FlatCompat backwards-compatibility layer.
+**Tailwind CSS 4 CSS-First Architecture (2026-02-10):**
+Migrated from Tailwind CSS 3 with PostCSS and JS config to Tailwind 4 with @tailwindcss/vite plugin and CSS-first @theme directive. Replaced @astrojs/tailwind integration. All theme config (colors, animations, shadows, radii, background images) now in global.css @theme block.
 
-**Rationale:** ESLint 10 removes legacy eslintrc support entirely. Native flat config provides cleaner ESM-native configuration. Plugin peer dependency warnings with ESLint 10 are transitional - all plugins work correctly. No type-aware linting avoids performance penalties and config file scope issues.
+**Rationale:** Tailwind 4 deprecates PostCSS-based workflow. Vite plugin provides 100x+ faster incremental builds. CSS-first configuration is more maintainable and provides better TypeScript support. Native nesting eliminates need for postcss-nesting plugin.
+
+**Seasonal Theming Client-Side Migration (2026-02-10):**
+Migrated seasonal theme system from build-time JS plugin (using Tailwind v3 addBase() API) to client-side CSS custom properties. All 6 seasons (christmas, halloween, winter, spring, summer, autumn) with light/dark variants defined as :root[data-season="..."] selectors. Inline script in BaseHead detects season and sets data-season attribute immediately.
+
+**Rationale:** Tailwind 4 changed plugin API making old addBase() approach incompatible. CSS custom properties with client-side detection is more flexible (no rebuild needed for theme changes), eliminates GitHub Actions cron rebuild trigger, and provides instant theme application. Default to winter theme prevents FOUC.
 
 ### Pending Todos
 
@@ -169,10 +174,10 @@ Migrated from ESLint 8 with legacy .eslintrc.cjs to ESLint 10 with native flat c
 ## Session Continuity
 
 **What Just Happened:**
-Completed Phase 4 Plan 02: ESLint 10 Flat Config Migration. Upgraded ESLint from 8.57.0 to 10.0.0 with mandatory flat config. Upgraded all plugins to flat-config-compatible versions (@typescript-eslint v8, eslint-plugin-astro v1). Created native ESLint flat config without backwards-compatibility shims. Removed legacy .eslintrc.cjs, .eslintignore, and eslint-config-standard. Verified linting works correctly for all file types (.ts, .astro, .js).
+Completed Phase 4 Plan 01: Tailwind CSS 4 Migration. Migrated from Tailwind CSS 3.4.1 to 4.1.18 with @tailwindcss/vite plugin and CSS-first architecture. Migrated all 6 seasonal themes from JS plugin to CSS custom properties with client-side detection. Replaced @astrojs/tailwind integration. Updated companion packages (tailwind-merge v3, tailwind-scrollbar v4, tw-animate-css). Build passes successfully.
 
 **What's Next:**
-Phase 4 Plan 02 complete (1/2 plans complete, 9/18 requirements done). Next: Execute Phase 4 Plan 01 (Tailwind CSS 4 migration) or Plan 03 (verification of both migrations).
+Phase 4 Plan 01 complete (1/2 plans complete, 9/18 requirements done). Next: Execute Phase 4 Plan 02 (ESLint 10 migration) or Plan 03 (verification of both migrations).
 
 **Open Questions:**
 - ~~Should we fully migrate to Content Layer API in Phase 3, or use legacy flag temporarily?~~ — Resolved: Full migration complete, working perfectly
