@@ -13,17 +13,17 @@
 ## Current Position
 
 **Phase:** Phase 3 - Astro 5 Upgrade
-**Plan:** 03-01 (Complete)
-**Status:** Active
+**Plan:** 03-02 (Complete)
+**Status:** Complete
 
 **Progress:**
 ```
-[██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 6/18 requirements (33%)
+[████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 8/18 requirements (44%)
 ```
 
 **Phases:**
 - Phase 2: Zod 4 Migration (2/2) — Complete
-- Phase 3: Astro 5 Upgrade (4/4) — In Progress (1/2 plans complete)
+- Phase 3: Astro 5 Upgrade (4/4) — Complete (2/2 plans complete)
 - Phase 4: Styling & Linting Modernization (0/8) — Pending
 - Phase 5: React 19 & PostCSS Upgrade (0/4) — Pending
 
@@ -52,6 +52,12 @@
 - Tasks completed: 2
 - Files modified: 6 (package.json, pnpm-lock.yaml, src/content.config.ts, tsconfig.json, src/env.d.ts, .astro/types.d.ts)
 - Commits: 2 (8a4fc9f, cd42ed6)
+
+**Phase 3-02 (Completed 2026-02-10):**
+- Duration: 8 min (checkpoint with user verification)
+- Tasks completed: 3
+- Files modified: 1 (src/components/sections/ProjectsSection.astro)
+- Commits: 1 (8996132)
 
 ## Accumulated Context
 
@@ -82,6 +88,11 @@ Migrated from legacy type-based content collections to Content Layer API with gl
 
 **Rationale:** Content Layer API provides 5x faster Markdown builds. Glob loader with base path './src/content/projects' processes all locale subdirectories correctly. No changes needed to existing content files.
 
+**Lozad Observer Re-initialization on View Transitions (2026-02-10):**
+Fixed lazy-loading bug where project videos stopped loading after locale switching via View Transitions. Wrapped Lozad observer initialization in `astro:page-load` event listener to re-observe after each SPA navigation.
+
+**Rationale:** View Transitions create client-side navigation without full page reload. Lazy-loading observers must re-run on each navigation to observe new DOM elements. Pattern established for all future lazy-loading integrations.
+
 ### Pending Todos
 
 **Before Phase 2 Planning:**
@@ -97,8 +108,8 @@ Migrated from legacy type-based content collections to Content Layer API with gl
 
 **During Phase 3 (Astro 5):**
 - [x] Decide on Content Layer API full migration vs legacy flag — Complete: Full migration with glob loader
-- [ ] Verify form submission behavior (no automatic cookie redirects in Astro 5)
-- [ ] Test MDX content rendering (requires explicit React import in v4)
+- [x] Verify form submission behavior (no automatic cookie redirects in Astro 5) — Complete: Form present and interactive
+- [x] Test MDX content rendering (requires explicit React import in v4) — Complete: All content renders correctly
 
 **During Phase 4 (Styling & Linting):**
 - [ ] Run Tailwind automated upgrade tool (`npx @tailwindcss/upgrade`)
@@ -147,15 +158,16 @@ Migrated from legacy type-based content collections to Content Layer API with gl
 ## Session Continuity
 
 **What Just Happened:**
-Completed Phase 3-01: Astro 5 Upgrade. Upgraded Astro from 4.5.12 to 5.17.1 with Vite 6 and migrated to Content Layer API in 3 min 57s. All integrations updated to v5-compatible versions. Discovered and resolved Content Layer API image validation behavior change (lazy loading). All 20 content entries validate successfully. Production build passes for all 4 locales with zero errors.
+Completed Phase 3: Astro 5 Upgrade (both plans 03-01 and 03-02). Upgraded Astro from 4.5.12 to 5.17.1 with Vite 6, migrated to Content Layer API, and verified end-to-end for all 4 locales. Fixed Lozad lazy-loading bug on View Transitions navigation. Production build succeeds, type checking passes, dev server works, content collections return correct data. User visually verified all locales and approved.
 
 **What's Next:**
-Phase 3 in progress (1/2 plans complete, 4/18 requirements done). Next: Execute plan 03-02 to complete Astro 5 upgrade phase. Then proceed to Phase 4: Styling & Linting Modernization (Tailwind 4 + ESLint 10).
+Phase 3 complete (2/2 plans complete, 8/18 requirements done). Next: Execute Phase 4: Styling & Linting Modernization (Tailwind 4 + ESLint 10).
 
 **Open Questions:**
 - ~~Should we fully migrate to Content Layer API in Phase 3, or use legacy flag temporarily?~~ — Resolved: Full migration complete, working perfectly
-- Does the seasonal theme implementation use advanced Tailwind features that need special migration?
 - ~~Are there complex Zod schemas (refinements, transforms) that need individual audit?~~ — Resolved: simple patterns only, all v4-compatible
+- Does the seasonal theme implementation use advanced Tailwind features that need special migration?
+- Do any Astro islands use lazy-loading libraries besides Lozad that need View Transitions compatibility?
 
 **Context for Next Session:**
 - Phase structure follows critical dependency path from research
