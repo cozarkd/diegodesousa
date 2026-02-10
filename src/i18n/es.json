@@ -1,7 +1,7 @@
 {
-	"SEO_TITLE_1": "Diego de Sousa | desarrollador frontend",
+	"SEO_TITLE_1": "Diego de Sousa | Desarrollador Full-Stack & Diseñador de Producto",
 	"SEO_TITLE_2": "",
-	"SEO_DESCRIPTION": "Desarrollador web que trabaja con startups y proyectos creativos desde el cariño y la inmersión. Desde la conceptualización hasta la experiencia de usuario; y más allá.",
+	"SEO_DESCRIPTION": "Desarrollador full-stack y diseñador de producto desde Galicia, España. Creo webs de alto rendimiento y productos SaaS con más de 10 años de experiencia.",
 	"HEADER": {
 		"LOGO": "Volver a la página de inicio de Diego de Sousa",
 		"NAMECARD": {
@@ -35,7 +35,7 @@
 		}
 	},
 	"HERO": {
-		"H1": "<span class='block'>Me llamo Diego,</span> soy un desarrollador <em>frontend</em> especializado en webs accesibles, interactivas y rápidas.",
+		"H1": "<span class='block'>Me llamo Diego,</span> diseño y construyo <em>webs de alto rendimiento</em> y <em>productos SaaS</em> que combinan diseño cuidado con desarrollo técnico.",
 		"PORTRAIT": {
 			"ALT": "Foto de Diego de Sousa"
 		}
@@ -50,7 +50,7 @@
 	},
 	"ABOUTSECTION": {
 		"H2": "Sobre mí",
-		"CONTENT": "<p>Con 12 años, mi padre trajo a casa un ordenador que ya no podía usar en su trabajo. Me dijeron que si lo rompía me quedaba sin él. Unos días después, obviamente, estaba \"roto\". Conseguí arreglarlo y romperlo una y otra vez. Ahí germinó la semilla de mi relación con el mundo digital.</p><p><strong>Diseñador gráfico</strong> de formación, <strong>desarrollador</strong> de vocación. Creo que mi mayor fortaleza está justo en esa intersección, entendiendo la importancia del diseño y traduciéndolo a una experiencia de usuario óptima.</p><p>En los últimos años me he orientado a <strong>proyectos accesibles, creativos y performantes</strong>.</p><p>Colaboro como freelance con clientes finales, estudios, agencias y empresas haciendo <strong>webs creativas y aplicaciones web</strong>; sin dejar <del>demasiado</del> de lado proyectos mis personales.</p><p>Nos podremos entender en <a href='/'><strong>español</strong> 🇪🇸</a>, <a href='/gl/'><strong>gallego</strong> 🌳</a>, <a href='/en/'><strong>inglés</strong></a> 🇬🇧 y <a href='/pt/'><strong>portugués</strong> 🇵🇹</a>.</p><p>Actualmente viviendo en Pontevedra, Galicia, España.</p>"
+		"CONTENT": "<p>Me formé como diseñador gráfico, estudiando la relación entre forma y función, aprendiendo a comunicar ideas a través del diseño. Con el tiempo, descubrí que el diseño que imaginaba necesitaba código para cobrar vida. Esa curiosidad me llevó al desarrollo web, y lo que comenzó como una herramienta para materializar mis diseños se convirtió en una segunda vocación.</p><p>Hoy trabajo como <strong>desarrollador full-stack y diseñador de producto</strong>, combinando más de 10 años de experiencia en ambas disciplinas. Entiendo el diseño desde dentro y lo traduzco a código limpio y eficiente. Esa intersección es mi mayor fortaleza: crear productos que no solo se ven bien, sino que funcionan excepcionalmente.</p><p>Me especializo en dos áreas: <strong>webs de alto rendimiento</strong> que combinan diseño visual cuidado con velocidad técnica, y <strong>productos SaaS</strong> como dashboards, aplicaciones y herramientas internas que facilitan el trabajo de las personas. Utilizo tecnologías web modernas y presto especial atención a la accesibilidad, asegurándome de que lo que construyo sea usable para todos.</p><p>Trabajo de forma independiente desde Galicia, España, colaborando con clientes de distintos países. Nos podemos comunicar en <a href='/'><strong>español</strong> 🇪🇸</a>, <a href='/gl/'><strong>gallego</strong> 🌳</a>, <a href='/en/'><strong>inglés</strong> 🇬🇧</a> y <a href='/pt/'><strong>portugués</strong> 🇵🇹</a>.</p><p>Me importa la calidad y el cuidado en los detalles. Creo en hacer las cosas bien: código pensado, diseño intencionado, productos que duran. Si buscas alguien que entienda tanto la parte visual como la técnica de tu proyecto, hablemos.</p>"
 	},
 	"CONTACTSECTION": {
 		"TITLE": "Contacto",
@@ -60,7 +60,7 @@
 			"EMAIL_LABEL": "Mi email es",
 			"EMAIL_PLACEHOLDER": "juan.nadie@gmail.com",
 			"HELP_LABEL": "Estoy buscando ayuda con",
-			"HELP_PLACEHOLDER": "diseño web, desarrollo de mi diseño, tienda online, etc.",
+			"HELP_PLACEHOLDER": "diseño web, desarrollo web, aplicaciones SaaS, dashboards, tiendas online, etc.",
 			"BUDGET_LABEL": "Mi presupuesto está entre",
 			"BUDGET_PLACEHOLDER": "1500-3000€",
 			"DEADLINE_LABEL": "Necesito tenerlo listo en",
