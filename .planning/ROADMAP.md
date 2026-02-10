@@ -42,6 +42,11 @@
 3. Type checking passes for all schema definitions
 4. Error messages display correctly when invalid data is encountered
 
+**Plans:** 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Upgrade Zod to v4 and verify content collections
+
 **Status:** Pending | **Effort:** 2-3 hours
 
 ---
@@ -143,10 +148,10 @@ Phase 4 and Phase 5 are independent of each other but both depend on Phase 3.
 
 ## Next Steps
 
-1. Begin Phase 2: Zod 4 Migration
-2. Run `/gsd:plan-phase 2` to create detailed execution plan
+1. Execute Phase 2: Zod 4 Migration
+2. Run `/gsd:execute-phase 2` to execute the plan
 3. Follow critical dependency path through all phases
 
 ---
 *Roadmap created: 2026-02-10*
-*Last updated: 2026-02-10 after v2.0 roadmap creation*
+*Last updated: 2026-02-10 after Phase 2 planning*
