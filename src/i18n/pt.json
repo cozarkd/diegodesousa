@@ -71,6 +71,15 @@
 			"WAIT_MESSAGE": "Por favor, espera..."
 		}
 	},
+	"CASESTUDY": {
+		"BACK_TO_PROJECTS": "Voltar aos projetos",
+		"CLIENT": "Cliente",
+		"YEAR": "Ano",
+		"ROLE": "Função",
+		"TECHNOLOGIES": "Tecnologias",
+		"VIEW_CASE_STUDY": "Ver caso de estudo",
+		"VISIT_PROJECT": "Ver projeto publicado"
+	},
 	"FOOTER": {
 		"COPY": {
 			"SEASONSCHANGE": "Uma curiosidade: tal como eu, este site muda com as estações do ano e a hora do dia. 🌱🌞🍂❄️"

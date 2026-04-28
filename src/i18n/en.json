@@ -71,6 +71,15 @@
 			"WAIT_MESSAGE": "Please wait..."
 		}
 	},
+	"CASESTUDY": {
+		"BACK_TO_PROJECTS": "Back to projects",
+		"CLIENT": "Client",
+		"YEAR": "Year",
+		"ROLE": "Role",
+		"TECHNOLOGIES": "Technologies",
+		"VIEW_CASE_STUDY": "View case study",
+		"VISIT_PROJECT": "Visit project"
+	},
 	"FOOTER": {
 		"COPY": {
 			"SEASONSCHANGE": "Fun fact: like me, this website changes with the seasons and time of day. 🌱🌞🍂❄️"
