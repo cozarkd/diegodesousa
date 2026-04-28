@@ -25,7 +25,6 @@
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
-    "astro-fathom": "^2.0.0",
     "astro-navbar": "^2.4.0",
     "astro-robots-txt": "^1.0.0",
     "autoprefixer": "^10.4.24",

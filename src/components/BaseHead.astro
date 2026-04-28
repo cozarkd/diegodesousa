@@ -16,7 +16,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title, description, image = '/folio_duotono_bg2x.png' } = Astro.props
 
-import { Fathom } from 'astro-fathom'
+const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 ---
 
 <!-- Seasonal Theme Script - runs immediately to prevent FOUC -->
@@ -102,12 +103,19 @@ import { Fathom } from 'astro-fathom'
 <meta name='msapplication-TileColor' content='#da532c' />
 <meta name='theme-color' content='#ffffff' />
 
-<!-- Fathom Analytics -->
-<Fathom
-  site='PBVGUENI'
-  includedDomains={['diegodesousa.com']}
-  enabled={false}
-/>
+<!-- Umami Analytics (production only, restricted to diegodesousa.com) -->
+{
+  import.meta.env.PROD && umamiScriptUrl && umamiWebsiteId && (
+    <script
+      is:inline
+      defer
+      src={umamiScriptUrl}
+      data-website-id={umamiWebsiteId}
+      data-domains='diegodesousa.com,www.diegodesousa.com'
+      data-do-not-track='true'
+    />
+  )
+}
 
 <!-- The next line enables the indexing by robots on the page level -->
 <meta name='robots' content='index, follow' />
