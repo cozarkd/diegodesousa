@@ -1,10 +1,10 @@
 ---
-const { href } = Astro.props
+const { href, target = '_blank' } = Astro.props
 ---
 
 <a
   href={href}
-  target='_blank'
+  target={target}
   class='text-md group inline-flex max-w-fit items-center justify-center gap-2 space-x-2 bg-background px-0 py-2 text-base transition hover:underline'
 >
   <slot />

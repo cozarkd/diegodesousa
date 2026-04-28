@@ -26,4 +26,23 @@ const projects = defineCollection({
     })
 })
 
-export const collections = { projects }
+const caseStudies = defineCollection({
+  loader: glob({
+    pattern: '**/*.md',
+    base: './src/content/case-studies'
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      projectSlug: z.string(),
+      language: z.string(),
+      client: z.string().optional(),
+      year: z.string().optional(),
+      role: z.string().optional(),
+      cover: image().optional(),
+      stack: z.array(z.string()).optional()
+    })
+})
+
+export const collections = { projects, 'case-studies': caseStudies }

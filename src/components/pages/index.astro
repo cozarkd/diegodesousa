@@ -40,7 +40,7 @@ import { ViewTransitions } from 'astro:transitions'
       >
         <article class='relative flex flex-col items-start justify-start'>
           <h1
-            class='fadeIn z-10 max-w-prose text-balance text-2xl text-foreground'
+            class='fadeIn z-10 max-w-prose text-balance text-2xl leading-tight text-foreground md:text-3xl 2xl:text-4xl'
             set:html={i18n.HERO.H1}
           />
         </article>
@@ -50,9 +50,9 @@ import { ViewTransitions } from 'astro:transitions'
           <Picture
             src={DiegoPortrait}
             widths={[256, 512, 771]}
-            sizes='(min-width: 1040px) 40vw, (min-width: 780px) 50vw, (min-width: 340px) 60vw, calc(-240vw + 960px)'
+            sizes='(min-width: 1536px) 30vw, (min-width: 1280px) 35vw, (min-width: 1040px) 40vw, (min-width: 780px) 50vw, (min-width: 340px) 60vw, calc(-240vw + 960px)'
             alt={i18n.HERO.PORTRAIT.ALT}
-            class='max-h-[70vh] w-auto max-w-[80vw] mix-blend-multiply dark:opacity-90 dark:mix-blend-normal md:max-w-[60vw] lg:max-w-[40vw]'
+            class='max-h-[70vh] w-auto max-w-[80vw] mix-blend-multiply dark:opacity-90 dark:mix-blend-normal md:max-w-[60vw] lg:max-h-[65vh] lg:max-w-[40vw] xl:max-w-[35vw] 2xl:max-w-[30vw]'
             loading='eager'
           />
         </div>
@@ -84,7 +84,7 @@ import { ViewTransitions } from 'astro:transitions'
         <SectionContainer
           id='projects'
           data-section='projects'
-          class='min-h-dvh'
+          class='min-h-dvh xl:max-w-5xl 2xl:max-w-6xl'
         >
           <ProjectsSection />
         </SectionContainer>

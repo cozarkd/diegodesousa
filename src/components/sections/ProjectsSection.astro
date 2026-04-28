@@ -10,11 +10,20 @@ import LinkButton from '@/components/LinkButton.astro'
 import { Image } from 'astro:assets' // Importa el componente Image de Astro para manejar imágenes.
 import { getCollection } from 'astro:content' // Importa getCollection para obtener datos de contenido.
 import { getI18N } from '@/i18n' // Importa la función getI18N para manejo de internacionalización (i18n).
+import { defaultLang } from '@/i18n/ui'
 
 const { currentLocale } = Astro // Obtiene el idioma actual.
 const i18n = getI18N({ currentLocale }) // Obtiene las traducciones correspondientes al idioma actual.
 
 const projects = await getCollection('projects') // Obtiene la colección de proyectos.
+
+// Task 5.1: Query case-studies collection and build lookup Set of projectSlug values for current locale
+const caseStudies = await getCollection('case-studies')
+const caseStudySlugs = new Set<string>(
+  caseStudies
+    .filter((study) => study.data.language === currentLocale)
+    .map((study) => study.data.projectSlug)
+)
 
 // console.log('Projects:', projects) // Depuración: muestra la lista completa de proyectos.
 
@@ -24,9 +33,12 @@ const filteredProjects = projects
     return project.data.language === currentLocale
   })
   .map((project) => {
+    // Extrae el slug del proyecto a partir de su id (formato: {locale}/filename).
+    const slug = project.id.split('/').pop()?.replace(/\.md$/, '') ?? ''
     // Mapea los datos del proyecto para obtener la estructura deseada.
     const projectData = {
       ...project.data,
+      slug, // Slug del proyecto para matching con case studies.
       cover: project.data.cover, // Imagen de portada del proyecto.
       tags: project.data.tags // Etiquetas del proyecto.
     }
@@ -34,7 +46,7 @@ const filteredProjects = projects
   })
 ---
 
-<h2 class='text-3xl font-bold text-primary'>{i18n.PROJECTSSECTION.H2}</h2>
+<h2 class='text-3xl font-bold leading-tight text-primary 2xl:text-4xl'>{i18n.PROJECTSSECTION.H2}</h2>
 <div class='flex flex-col gap-y-16'>
   {
     filteredProjects
@@ -86,7 +98,7 @@ const filteredProjects = projects
             </div>
           </div>
           <div class='w-full md:w-1/2 md:max-w-lg'>
-            <h3 class='mb-4 text-balance text-2xl font-bold text-secondary dark:text-secondary'>
+            <h3 class='mb-4 text-balance text-2xl font-bold leading-tight text-secondary dark:text-secondary 2xl:text-3xl'>
               {project.title}
             </h3>
             <div class='mt-2 flex flex-wrap'>
@@ -118,6 +130,16 @@ const filteredProjects = projects
                   <LinkButton href={project.link} asChild>
                     <Link class='size-4' />
                     {i18n.PROJECTSSECTION.LIVEDEMO}
+                  </LinkButton>
+                )}
+                {caseStudySlugs.has(project.slug) && (
+                  <LinkButton
+                    href={currentLocale === defaultLang
+                      ? `/projects/${project.slug}`
+                      : `/${currentLocale}/projects/${project.slug}`}
+                    target='_self'
+                  >
+                    {i18n.CASESTUDY.VIEW_CASE_STUDY}
                   </LinkButton>
                 )}
               </footer>
