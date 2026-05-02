@@ -10,11 +10,12 @@ interface Props {
   title: string
   description: string
   image?: string
+  type?: string
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = '/folio_duotono_bg2x.png' } = Astro.props
+const { title, description, image = '/folio_duotono_bg2x.png', type = 'website' } = Astro.props
 
 const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
@@ -82,7 +83,7 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 <meta name='description' content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property='og:type' content='website' />
+<meta property='og:type' content={type} />
 <meta property='og:url' content={Astro.url} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
