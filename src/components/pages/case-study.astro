@@ -9,7 +9,7 @@ import { Picture } from 'astro:assets'
 import { getI18N } from '@/i18n'
 import { getLangFromUrl } from '@/i18n/utils'
 import { defaultLang } from '@/i18n/ui'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import { getTagClass } from '@/lib/tags'
 
 interface Props {
@@ -44,8 +44,12 @@ const backHref =
   class='scroll-py-24 scroll-smooth scrollbar scrollbar-track-background scrollbar-thumb-foreground motion-reduce:scroll-auto'
 >
   <head>
-    <BaseHead title={`${data.title} | Diego de Sousa`} description={data.description} />
-    <ViewTransitions />
+    <BaseHead
+      title={`${data.title} | Diego de Sousa`}
+      description={data.description}
+      image={data.cover?.src}
+    />
+    <ClientRouter />
 
     <style is:global>
       .case-study-prose h2 {

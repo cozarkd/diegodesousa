@@ -27,7 +27,6 @@
     "astro": "^5.17.1",
     "astro-navbar": "^2.4.0",
     "astro-robots-txt": "^1.0.0",
-    "autoprefixer": "^10.4.24",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
