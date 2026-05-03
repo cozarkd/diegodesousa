@@ -21,6 +21,12 @@ const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 ---
 
+<!-- Global Metadata -->
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width,initial-scale=1' />
+
+<meta name='generator' content={Astro.generator} />
+
 <!-- Seasonal Theme Script - runs immediately to prevent FOUC -->
 <script is:inline>
   (function() {
@@ -58,12 +64,6 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
     document.documentElement.setAttribute('data-season', season);
   })();
 </script>
-
-<!-- Global Metadata -->
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width,initial-scale=1' />
-
-<meta name='generator' content={Astro.generator} />
 
 <!-- Font preloads -->
 <!-- <link
