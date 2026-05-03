@@ -1,0 +1,174 @@
+---
+// SEO structured data (JSON-LD) component
+// Emits Person on every page; WebSite on landings; Article + BreadcrumbList on case studies.
+
+import { defaultLang } from '@/i18n/ui'
+import { getI18N } from '@/i18n'
+
+interface Props {
+  type?: 'website' | 'article'
+  pageData?: {
+    title: string
+    description: string
+    image?: string
+    year?: string
+  }
+  breadcrumbName?: string
+}
+
+const { type = 'website', pageData, breadcrumbName } = Astro.props
+
+const SITE_URL = 'https://diegodesousa.com'
+
+// Map Astro currentLocale to BCP-47 language tags used in schema/og
+const localeMap: Record<string, string> = {
+  es: 'es-ES',
+  en: 'en-US',
+  gl: 'gl-ES',
+  pt: 'pt-PT'
+}
+
+const homeNameByLocale: Record<string, string> = {
+  es: 'Inicio',
+  en: 'Home',
+  gl: 'Inicio',
+  pt: 'Início'
+}
+
+const currentLocale = (Astro.currentLocale ?? defaultLang) as string
+const inLanguage = localeMap[currentLocale] ?? localeMap[defaultLang]
+const i18n = getI18N({ currentLocale: Astro.currentLocale })
+const jobTitle = i18n.JOB_TITLE
+
+// Determine if this URL is a "landing" (locale root). Trailing slash tolerated.
+const pathname = Astro.url.pathname
+const isLanding =
+  pathname === '/' ||
+  pathname === '/en' ||
+  pathname === '/en/' ||
+  pathname === '/gl' ||
+  pathname === '/gl/' ||
+  pathname === '/pt' ||
+  pathname === '/pt/'
+
+// Person image: stable URL (no hashed asset)
+const personImage = `${SITE_URL}/folio_duotono_bg2x.png`
+
+// Build absolute current URL (without trailing slash normalization)
+const currentUrl = new URL(pathname, SITE_URL).toString()
+
+// Build locale-aware home URL
+const homeUrl =
+  currentLocale === defaultLang
+    ? `${SITE_URL}/`
+    : `${SITE_URL}/${currentLocale}/`
+const homeName = homeNameByLocale[currentLocale] ?? homeNameByLocale[defaultLang]
+
+// Person (every page)
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Diego de Sousa',
+  url: SITE_URL,
+  sameAs: ['https://www.linkedin.com/in/diego-de-sousa/'],
+  jobTitle,
+  image: personImage
+}
+
+// WebSite (landings only)
+const websiteSchema = isLanding
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Diego de Sousa',
+      url: SITE_URL,
+      inLanguage
+    }
+  : null
+
+// Article (case studies)
+let articleSchema: Record<string, unknown> | null = null
+let breadcrumbSchema: Record<string, unknown> | null = null
+
+if (type === 'article' && pageData) {
+  // Resolve article image to absolute URL
+  let articleImage: string | undefined
+  if (pageData.image) {
+    articleImage = pageData.image.startsWith('http')
+      ? pageData.image
+      : new URL(pageData.image, SITE_URL).toString()
+  } else {
+    articleImage = personImage
+  }
+
+  // datePublished only when year is exactly 4 digits (ISO-safe)
+  let datePublished: string | undefined
+  if (pageData.year && /^\d{4}$/.test(pageData.year.trim())) {
+    datePublished = `${pageData.year.trim()}-01-01`
+  }
+
+  articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: pageData.title,
+    description: pageData.description,
+    image: articleImage,
+    author: {
+      '@type': 'Person',
+      name: 'Diego de Sousa',
+      url: SITE_URL
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Diego de Sousa'
+    },
+    inLanguage,
+    ...(datePublished ? { datePublished } : {})
+  }
+
+  breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: homeName,
+        item: homeUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: breadcrumbName ?? pageData.title,
+        item: currentUrl
+      }
+    ]
+  }
+}
+---
+
+<script type='application/ld+json' set:html={JSON.stringify(personSchema)} />
+{
+  websiteSchema && (
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify(websiteSchema)}
+    />
+  )
+}
+{
+  articleSchema && (
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify(articleSchema)}
+    />
+  )
+}
+{
+  breadcrumbSchema && (
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify(breadcrumbSchema)}
+    />
+  )
+}

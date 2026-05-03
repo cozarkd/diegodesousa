@@ -6,19 +6,103 @@
 import '@fontsource-variable/recursive/standard.css'
 
 import '@/styles/global.css'
+import StructuredData from '@/components/StructuredData.astro'
+import { defaultLang } from '@/i18n/ui'
+
 interface Props {
   title: string
   description: string
   image?: string
-  type?: string
+  type?: 'website' | 'article'
+  // Article-only metadata for JSON-LD
+  pageData?: {
+    title: string
+    description: string
+    image?: string
+    year?: string
+  }
+  breadcrumbName?: string
+  // For case studies: locales where this same content (same projectSlug) exists.
+  // If omitted, defaults to all locales (suitable for landings/static pages).
+  alternateLocales?: string[]
+  // Path SUFFIX after the locale prefix (no leading slash needed). For landings:
+  // empty string. For case studies: e.g. 'projects/floralia/'.
+  // If omitted, falls back to Astro.url.pathname stripped of locale prefix.
+  pathSuffix?: string
 }
+
+const SITE_URL = 'https://diegodesousa.com'
+const ALL_LOCALES = ['es', 'en', 'gl', 'pt'] as const
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = '/folio_duotono_bg2x.png', type = 'website' } = Astro.props
+const {
+  title,
+  description,
+  image = '/folio_duotono_bg2x.png',
+  type = 'website',
+  pageData,
+  breadcrumbName,
+  alternateLocales,
+  pathSuffix
+} = Astro.props
 
 const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
+
+// --- og:locale mapping (Facebook standard codes) ---
+const ogLocaleMap: Record<string, string> = {
+  es: 'es_ES',
+  en: 'en_US',
+  gl: 'gl_ES',
+  pt: 'pt_PT'
+}
+
+const currentLocale = (Astro.currentLocale ?? defaultLang) as string
+const ogLocale = ogLocaleMap[currentLocale] ?? ogLocaleMap[defaultLang]
+const otherLocales = ALL_LOCALES.filter((l) => l !== currentLocale)
+
+// --- hreflang alternates ---
+// Compute the suffix (path after the locale prefix). For default locale there is no
+// prefix, so we use the full pathname (minus leading slash). For other locales we
+// strip '/<locale>/' from the start.
+function computeSuffix(pathname: string, locale: string): string {
+  if (locale === defaultLang) {
+    return pathname.replace(/^\//, '')
+  }
+  const prefix = `/${locale}/`
+  if (pathname.startsWith(prefix)) {
+    return pathname.slice(prefix.length)
+  }
+  // Edge: '/<locale>' with no trailing slash
+  if (pathname === `/${locale}`) return ''
+  return pathname.replace(/^\//, '')
+}
+
+const resolvedSuffix =
+  pathSuffix !== undefined
+    ? pathSuffix.replace(/^\//, '')
+    : computeSuffix(Astro.url.pathname, currentLocale)
+
+// Locales eligible for alternates. Default: all four. Overridable for case studies.
+const eligibleLocales = alternateLocales ?? [...ALL_LOCALES]
+
+function buildLocaleUrl(locale: string, suffix: string): string {
+  if (locale === defaultLang) {
+    return `${SITE_URL}/${suffix}`
+  }
+  return `${SITE_URL}/${locale}/${suffix}`
+}
+
+const hreflangEntries = eligibleLocales.map((locale) => ({
+  hreflang: locale,
+  href: buildLocaleUrl(locale, resolvedSuffix)
+}))
+
+// x-default points to the default locale URL (when it's eligible)
+const xDefaultHref = eligibleLocales.includes(defaultLang)
+  ? buildLocaleUrl(defaultLang, resolvedSuffix)
+  : null
 ---
 
 <!-- Global Metadata -->
@@ -88,6 +172,20 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
 <meta property='og:image' content={new URL(image, Astro.url)} />
+<meta property='og:locale' content={ogLocale} />
+{
+  otherLocales.map((l) => (
+    <meta property='og:locale:alternate' content={ogLocaleMap[l]} />
+  ))
+}
+
+<!-- hreflang alternates -->
+{
+  hreflangEntries.map(({ hreflang, href }) => (
+    <link rel='alternate' hreflang={hreflang} href={href} />
+  ))
+}
+{xDefaultHref && <link rel='alternate' hreflang='x-default' href={xDefaultHref} />}
 
 <!-- Twitter -->
 <meta property='twitter:card' content='summary_large_image' />
@@ -103,6 +201,13 @@ const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#3a3a3a' />
 <meta name='msapplication-TileColor' content='#da532c' />
 <meta name='theme-color' content='#ffffff' />
+
+<!-- JSON-LD structured data -->
+<StructuredData
+  type={type}
+  pageData={pageData}
+  breadcrumbName={breadcrumbName}
+/>
 
 <!-- Umami Analytics (production only, restricted to diegodesousa.com) -->
 {
